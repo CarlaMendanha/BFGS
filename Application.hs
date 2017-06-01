@@ -8,5 +8,6 @@ module Application where
 import Foundation
 import Yesod
 import Home
+import Login
 
 mkYesodDispatch "App" resourcesApp

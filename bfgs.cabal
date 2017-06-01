@@ -9,6 +9,7 @@ executable          bfgs
   other-modules:    Application
                     Foundation
                     Home
+                    Login
 
   ghc-options:      -Wall -fwarn-tabs -O2
 
