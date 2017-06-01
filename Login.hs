@@ -22,3 +22,12 @@ postCadastroR = do
     usuario <- requireJsonBody :: Handler Usuario -- nome, email e senha
     uid <- runDB $ insert usuario
     sendStatusJSON created201 (object ["id" .= (fromSqlKey uid)])
+
+getLoginR :: Text -> Text -> Handler TypedContent
+getLoginR email senha = do
+    usuario <- runDB $ selectFirst [UsuarioEmail ==. email,UsuarioSenha ==. senha] []
+    case usuario of
+        Nothing -> do
+            notFound
+        Just (Entity uid u) -> do
+            sendStatusJSON ok200 (object ["id" .= (fromSqlKey uid), "nome" .= (usuarioNome u)])
