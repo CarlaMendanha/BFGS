@@ -1,0 +1,3 @@
+git config --global user.name "Carla Mendanha"
+git config --global user.email "serenarla@gmail.com"
+echo "Olá, Camilla!"

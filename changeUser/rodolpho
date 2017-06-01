@@ -1,0 +1,3 @@
+git config --global user.name "Rodolpho Costa"
+git config --global user.email "rodolpholitoral@gmail.com"
+echo "Olá, Rodolpho!"
