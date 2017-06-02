@@ -1,3 +1,6 @@
 /              HomeR GET
 /cadastro      CadastroR POST
 /login/#Text/#Text LoginR GET
+
+
+/categoria      CategoriaR GET

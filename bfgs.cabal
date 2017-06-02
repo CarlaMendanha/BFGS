@@ -10,6 +10,7 @@ executable          bfgs
                     Foundation
                     Home
                     Login
+                    Categoria
 
   ghc-options:      -Wall -fwarn-tabs -O2
 

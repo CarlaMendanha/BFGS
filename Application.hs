@@ -9,5 +9,6 @@ import Foundation
 import Yesod
 import Home
 import Login
+import Categoria
 
 mkYesodDispatch "App" resourcesApp
