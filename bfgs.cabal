@@ -25,5 +25,6 @@ executable          bfgs
                 , http-types
                 , shakespeare
                 , time
+                , SHA2
 
   ghc-options:    -threaded -O2 -rtsopts -with-rtsopts=-N
