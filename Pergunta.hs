@@ -39,3 +39,10 @@ getPerguntaR  = do
     perguntas <- runDB $ selectList ([] :: [Filter Pergunta]) [] -- seleciona as perguntas 
     sendStatusJSON ok200 perguntas -- joga na tela a lista 	{"id" : id, "enunciado" : "tal tal", "pontos" : 800 "categoriaId" : “1”}
     
+-- Deletar pergunta no Banco de Dados
+deleteBuscarPerguntaR :: PerguntaId -> Handler TypedContent
+deleteBuscarPerguntaR perid = do
+    _ <- runDB $ get404 perid -- verifica se existe
+    runDB $ delete perid -- deleta no banco
+    sendStatusJSON noContent204 (object ["id" .= (fromSqlKey perid)]) -- joga na tela
+    

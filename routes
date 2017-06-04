@@ -8,4 +8,4 @@
 /partida                PartidaR            POST
 
 /pergunta               PerguntaR           POST GET
-/pergunta/#PerguntaId   BuscarPerguntaR     GET
+/pergunta/#PerguntaId   BuscarPerguntaR     GET DELETE
