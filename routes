@@ -7,5 +7,5 @@
 
 /partida                PartidaR            POST
 
-/pergunta               PerguntaR           POST
+/pergunta               PerguntaR           POST GET
 /pergunta/#PerguntaId   BuscarPerguntaR     GET

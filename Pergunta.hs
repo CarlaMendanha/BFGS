@@ -12,10 +12,12 @@
 module Pergunta where
 
 import Yesod
-import Data.Text
+import Data.Text hiding (map) 
 import Database.Persist.Postgresql
 import Foundation
 import Network.HTTP.Types.Status
+
+-- Usar o map do prelude e escondendo o map do data text.
 
 -- Criando a pergunta no Banco de dados
 postPerguntaR :: Handler TypedContent
@@ -30,3 +32,10 @@ getBuscarPerguntaR perid = do
     pergunta <- runDB $ get404 perid  -- se o id existe ele retorna (busca no banco) / select no banco
     categoria <- runDB $ get404 (perguntaCategoriaId pergunta) -- pegar o id e nome da categoria
     sendStatusJSON ok200 (object ["id" .= (perid), "enunciado" .=(perguntaEnunciado pergunta), "pontos" .=(perguntaPontos pergunta), "categoria" .=(object ["id" .= (perguntaCategoriaId pergunta), "nome" .=(categoriaNome categoria)])]) --  criando na mao o join /joga na tela a busca
+    
+-- Listar pergunta no Banco de dados
+getPerguntaR :: Handler TypedContent
+getPerguntaR  = do
+    perguntas <- runDB $ selectList ([] :: [Filter Pergunta]) [] -- seleciona as perguntas 
+    sendStatusJSON ok200 perguntas -- joga na tela a lista 	{"id" : id, "enunciado" : "tal tal", "pontos" : 800 "categoriaId" : “1”}
+    
