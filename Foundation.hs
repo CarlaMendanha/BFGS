@@ -33,12 +33,13 @@ share [mkPersist sqlSettings, mkMigrate "migrateAll"] [persistLowerCase|
     Pergunta json
         enunciado Text
         pontos Int
-        categoria Text
+        categoriaId CategoriaId
         deriving Show
      
     Alternativa json
         texto Text
         certa Bool
+        perguntaId PerguntaId
         deriving Show
      
     Categoria json
