@@ -1,2 +1,3 @@
 curl localhost:8080/partida -X POST -d '{"usuarioId": 1215, "pontuacao": 8000, "dia" : "2017-06-01 19:20:14"}'
 curl localhost:8080/pergunta -X POST -d '{"enunciado": "tal tal", "pontos": 800, "categoriaId": 1}'
+curl localhost:8080/pergunta/2
