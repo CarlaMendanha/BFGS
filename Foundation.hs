@@ -47,7 +47,7 @@ share [mkPersist sqlSettings, mkMigrate "migrateAll"] [persistLowerCase|
      
     Partida json
         pontuacao Int
-        dataPartida Day
+        dia Day
         usuarioId UsuarioId
         deriving Show
 |]

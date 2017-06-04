@@ -1,0 +1,1 @@
+curl localhost:8080/partida -X POST -d '{"usuarioId": 1215, "pontuacao": 8000, "dia" : "2017-06-01 19:20:14"}'

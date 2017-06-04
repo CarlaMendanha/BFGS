@@ -11,6 +11,7 @@ executable          bfgs
                     Home
                     Login
                     Categoria
+                    Partida
 
   ghc-options:      -Wall -fwarn-tabs -O2
 

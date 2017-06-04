@@ -10,5 +10,6 @@ import Yesod
 import Home
 import Login
 import Categoria
+import Partida
 
 mkYesodDispatch "App" resourcesApp
