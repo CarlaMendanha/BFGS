@@ -11,5 +11,6 @@ import Home
 import Login
 import Categoria
 import Partida
+import Pergunta
 
 mkYesodDispatch "App" resourcesApp

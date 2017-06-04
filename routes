@@ -1,8 +1,10 @@
-/              HomeR GET
-/cadastro        CadastroR POST
-/login/#Text/#Text LoginR GET
+/                       HomeR           GET
+/cadastro               CadastroR       POST
+/login/#Text/#Text      LoginR          GET
 
 
-/categoria          CategoriaR GET
+/categoria              CategoriaR      GET
 
-/partida            PartidaR POST
+/partida                PartidaR        POST
+
+/pergunta               PerguntaR       POST

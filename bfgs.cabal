@@ -12,6 +12,7 @@ executable          bfgs
                     Login
                     Categoria
                     Partida
+                    Pergunta
 
   ghc-options:      -Wall -fwarn-tabs -O2
 
