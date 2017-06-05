@@ -9,14 +9,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js">
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js" charset="utf-8"></script>
-    <title>Big Fausto's Game Show :: Admin</title>
+    <title>Admin - Big Fausto's Game Show</title>
     <style>
-        .table td{
-            vertical-align: middle;
-        }
-        .pointer{
-            cursor: pointer;
-        }
+    .table td{
+        vertical-align: middle;
+    }
+    .pointer{
+        cursor: pointer;
+    }
     </style>
 </head>
 <body>
@@ -26,6 +26,16 @@
     <div class="container my-5">
         <div class="row">
             <h1 class="display-1">{{titulo}}</h1>
+        </div>
+    </div>
+    <div ng-show="flashMsg" class="container">
+        <div class="alert alert-{{flashMsg.tipo}} alert-dismissible fade show" role="alert">
+            <button type="button" class="close" ng-click="dismiss()" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong ng-if="flashMsg.tipo == 'success'">Sucesso!</strong>
+            <strong ng-if="flashMsg.tipo != 'success'">Ops!</strong>
+            {{flashMsg.texto}}
         </div>
     </div>
     <div class="container" ng-view></div>

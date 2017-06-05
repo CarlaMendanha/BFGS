@@ -15,16 +15,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Qual a diferença entre o charme e o funk?</td>
-                <td>3000</td>
-                <td>Diversidades</td>
+            <tr ng-repeat="p in perguntas">
+                <td>{{p.id}}</td>
+                <td>{{p.enunciado}}</td>
+                <td>{{p.pontos}}</td>
+                <td>{{p.categoria.nome}}</td>
                 <td>
                     <div class="btn-group btn-group" role="group" aria-label="Toolbar with button groups">
-                      <a href="#/pergunta/1" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Alternativas</a>
-                      <a href="#/pergunta/editar/1" class="btn btn-secondary"><i class="fa fa-pencil"></i> Editar</a>
-                      <a href="" class="btn btn-danger"><i class="fa fa-trash"></i> Remover</a>
+                      <a href="#/pergunta/{{p.id}}" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Alternativas</a>
+                      <a href="#/pergunta/editar/{{p.id}}" class="btn btn-secondary"><i class="fa fa-pencil"></i> Editar</a>
+                      <a href="#/" ng-click="remover($index)" class="btn btn-danger"><i class="fa fa-trash"></i> Remover</a>
                     </div>
                 </td>
             </tr>
