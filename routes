@@ -11,4 +11,4 @@
 /pergunta/#PerguntaId           BuscarPerguntaR             GET DELETE PUT
 
 /alternativa                    AlternativaR                POST
-/alternativa/#AlternativaId     BuscarAlternativaR          DELETE
+/alternativa/#AlternativaId     BuscarAlternativaR          GET DELETE
