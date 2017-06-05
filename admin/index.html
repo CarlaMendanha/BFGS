@@ -14,12 +14,20 @@
         .table td{
             vertical-align: middle;
         }
+        .pointer{
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-light bg-faded">
-        <strong>BFGS</strong>
+        <a class="navbar-brand" href="#/"><strong>BFGS</strong></a>
     </nav>
+    <div class="container my-5">
+        <div class="row">
+            <h1 class="display-1">{{titulo}}</h1>
+        </div>
+    </div>
     <div class="container" ng-view></div>
 </body>
 <script src="js/index.js"></script>

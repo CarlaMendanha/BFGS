@@ -33,8 +33,10 @@ getBuscarPerguntaR perid = do
     categoria <- runDB $ get404 (perguntaCategoriaId pergunta) -- pegar o id e nome da categoria
     alternativas <- runDB $ selectList [AlternativaPerguntaId ==. perid ] [] -- seleciona as alternativas dessa pergunta
     sendStatusJSON ok200 (object ["alternativas".= (alternativas), "id" .= (perid), "enunciado" .=(perguntaEnunciado pergunta), "pontos" .=(perguntaPontos pergunta), "categoria" .=(object ["id" .= (perguntaCategoriaId pergunta), "nome" .=(categoriaNome categoria)])]) --  criando na mao o join /joga na tela a busca
+    -- {"pontos":8000,"categoria":{"nome":"Esportes","id":1},"id":2,"enunciado":"tal tal tal","alternativas":[]}
     
 -- Listar pergunta no Banco de dados
+-- TO DO listar pergunta e suas alternativas {“id” : id, “enunciado” : “e”, “categoria” : “Geografia”,“alternativas”: [	{“id” :”id”,“texto”: “texto”“certa” : false}...]}
 getPerguntaR :: Handler TypedContent
 getPerguntaR  = do
     perguntas <- runDB $ selectList ([] :: [Filter Pergunta]) [] -- seleciona as perguntas 

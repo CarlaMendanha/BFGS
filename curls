@@ -2,4 +2,4 @@ curl localhost:8080/partida -X POST -d '{"usuarioId": 1215, "pontuacao": 8000, "
 curl localhost:8080/pergunta -X POST -d '{"enunciado": "tal tal", "pontos": 800, "categoriaId": 1}'
 curl localhost:8080/pergunta/2
 curl localhost:8080/pergunta/2 -X PUT -d '{"enunciado": "tal tal tal", "pontos": 8000, "categoriaId": 1}'
-curl localhost:8080/pergunta/3 -X DELETE
+curl localhost:8080/pergunta/2 -X DELETE

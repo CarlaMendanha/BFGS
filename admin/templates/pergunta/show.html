@@ -1,0 +1,30 @@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#/">Home</a></li>
+    <li class="breadcrumb-item active">{{titulo}}</li>
+</ol>
+<div class="row">
+    <div class="col-12">
+        <h4>Enunciado: <small>{{pergunta.enunciado}}</small></h4>
+        <hr>
+        <h4>Pontos: <small>{{pergunta.pontos}}</small></h4>
+        <hr>
+        <h4>Categoria: <small>{{pergunta.categoria.nome}}</small></h4>
+        <hr>
+        <h4>Alternativas: </h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <button ng-click="add()" class="pull-right btn btn-primary my-3"><i class="fa fa-plus"></i> Adicionar alternativa</button>
+        <div class="list-group list d-flex w-100">
+            <div ng-repeat="a in alternativas" ng-class="a.certa?'list-group-item-success':''" class="list-group-item justify-content-between">
+                {{a.texto}}
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button ng-click="editar($index)" type="button" class="btn pointer btn-secondary"><i class="fa fa-pencil"></i></button>
+                    <button ng-click="marcar($index)" type="button" class="btn pointer btn-secondary"><i ng-class="a.certa?'fa-check-square-o':'fa-square-o'" class="fa"></i></button>
+                    <button ng-click="remover($index)" type="button" class="btn pointer btn-danger"><i class="fa fa-trash"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

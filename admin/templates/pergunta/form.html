@@ -1,0 +1,30 @@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#/">Home</a></li>
+    <li class="breadcrumb-item active">{{titulo}}</li>
+</ol>
+<form>
+    <div class="align-items-center form-group row">
+        <label for="inputEnunciado" class="col-sm-2 form-control-label">Enunciado</label>
+        <div class="col-sm-10">
+            <input ng-model="model.enunciado" type="text" class="form-control" id="inputEnunciado" placeholder="Enunciado">
+        </div>
+    </div>
+    <div class="align-items-center form-group row">
+        <label for="inputPontos" class="col-sm-2 form-control-label">Pontos</label>
+        <div class="col-sm-10">
+            <input ng-model="model.pontos" type="number" min="0" max="1000000" step="50" class="form-control" id="inputPontos" placeholder="Pontos">
+        </div>
+    </div>
+    <div class="align-items-center form-group row">
+        <label for="inputCategoria" class="col-sm-2">Categoria</label>
+        <div class="col-sm-10">
+            <select id="inputCategoria" ng-model="model.categoria" class="form-control" ng-options="c.nome for c in categorias track by c.id"></select>
+        </div>
+    </div>
+    <div class="align-items-center form-group row">
+        <div class="offset-sm-2 col-sm-10">
+            <button ng-click="voltar()" type="button" class="btn btn-danger pointer"><i class="fa fa-times"></i> Cancelar</button>
+            <button ng-click="salvar()" type="button" class="btn btn-primary pointer"><i class="fa fa-check"></i> {{botaoSalvar || "Salvar"}}</button>
+        </div>
+    </div>
+</form>
