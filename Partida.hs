@@ -23,3 +23,8 @@ postPartidaR = do
     parid <- runDB $ insert partida -- inserindo a partida no Banco de dados
     sendStatusJSON created201 (object ["id" .= (fromSqlKey parid)]) -- mostrar que o id novo foi inserido 
 
+getPlacarR :: Handler TypedContent
+getPlacarR = do
+    partidas <- runDB $ selectList [] [Asc PartidaPontuacao, LimitTo 5]
+    sendStatusJSON ok200 partidas
+

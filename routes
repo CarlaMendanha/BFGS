@@ -2,10 +2,10 @@
 /cadastro                       CadastroR                   POST
 /login/#Text/#Text              LoginR                      GET
 
-
 /categoria                      CategoriaR                  GET
 
 /partida                        PartidaR                    POST
+/placar                         PlacarR                     GET
 
 /pergunta                       PerguntaR                   POST GET
 /pergunta/#PerguntaId           BuscarPerguntaR             GET DELETE PUT
