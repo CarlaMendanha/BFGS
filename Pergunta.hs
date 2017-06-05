@@ -12,12 +12,10 @@
 module Pergunta where
 
 import Yesod
-import Data.Text hiding (replace) 
 import Database.Persist.Postgresql
 import Foundation
 import Network.HTTP.Types.Status
-
--- Usar o replace do prelude e escondendo o map do data text.
+import Data.List (find)
 
 -- Criando a pergunta no Banco de dados
 postPerguntaR :: Handler TypedContent
@@ -38,9 +36,17 @@ getBuscarPerguntaR perid = do
 -- Listar pergunta no Banco de dados
 -- TO DO listar pergunta e suas alternativas {“id” : id, “enunciado” : “e”, “categoria” : “Geografia”,“alternativas”: [	{“id” :”id”,“texto”: “texto”“certa” : false}...]}
 getPerguntaR :: Handler TypedContent
-getPerguntaR  = do
+getPerguntaR  = 
+
+    let getCategoria cid ls = do
+        case (find (\(Entity catid _) -> catid == cid) ls) of
+            Nothing -> "Desconhecido"
+            Just (Entity _ c) -> (categoriaNome c)
+    in do
     perguntas <- runDB $ selectList ([] :: [Filter Pergunta]) [] -- seleciona as perguntas 
-    sendStatusJSON ok200 perguntas -- joga na tela a lista 	{"id" : id, "enunciado" : "tal tal", "pontos" : 800 "categoriaId" : “1”}
+    categorias <- runDB $ selectList ([] :: [Filter Categoria]) [] -- seleciona as perguntas 
+    resultado <- return $ map (\(Entity pid p) -> object ["id" .= pid, "categoria" .= getCategoria (perguntaCategoriaId p) categorias, "enunciado" .= perguntaEnunciado p, "pontos" .= perguntaPontos p]) perguntas
+    sendStatusJSON ok200 resultado -- joga na tela a lista 	{"id" : id, "enunciado" : "tal tal", "pontos" : 800 "categoriaId" : “1”}
     
 -- Deletar pergunta no Banco de Dados
 deleteBuscarPerguntaR :: PerguntaId -> Handler TypedContent
