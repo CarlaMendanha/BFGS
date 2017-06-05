@@ -1,0 +1,27 @@
+{-# LANGUAGE EmptyDataDecls             #-}
+{-# LANGUAGE FlexibleContexts           #-}
+{-# LANGUAGE GADTs                      #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE MultiParamTypeClasses      #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE QuasiQuotes                #-}
+{-# LANGUAGE ViewPatterns               #-}
+{-# LANGUAGE TemplateHaskell            #-}
+{-# LANGUAGE TypeFamilies               #-}
+
+module Alternativa where
+
+import Yesod
+import Database.Persist.Postgresql
+import Foundation
+import Network.HTTP.Types.Status
+import Data.List (find)
+
+postAlternativaR :: Handler TypedContent
+postAlternativaR = do
+    alternativa <- requireJsonBody :: Handler Alternativa
+    altid <- runDB $ insert alternativa
+    sendStatusJSON created201 (object ["id" .= (fromSqlKey altid)])
+
+
+

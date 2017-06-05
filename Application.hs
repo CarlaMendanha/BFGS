@@ -12,5 +12,6 @@ import Login
 import Categoria
 import Partida
 import Pergunta
+import Alternativa
 
 mkYesodDispatch "App" resourcesApp

@@ -9,3 +9,5 @@
 
 /pergunta               PerguntaR           POST GET
 /pergunta/#PerguntaId   BuscarPerguntaR     GET DELETE PUT
+
+/alternativa            AlternativaR        POST

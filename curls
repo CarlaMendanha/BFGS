@@ -3,3 +3,4 @@ curl localhost:8080/pergunta -X POST -d '{"enunciado": "tal tal", "pontos": 800,
 curl localhost:8080/pergunta/2
 curl localhost:8080/pergunta/2 -X PUT -d '{"enunciado": "tal tal tal", "pontos": 8000, "categoriaId": 1}'
 curl localhost:8080/pergunta/2 -X DELETE
+curl localhost:8080/alternativa -X POST -d '{"texto":"testando1", "certa": true, "perguntaId": 2}'

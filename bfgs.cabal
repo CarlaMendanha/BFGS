@@ -13,6 +13,7 @@ executable          bfgs
                     Categoria
                     Partida
                     Pergunta
+                    Alternativa
 
   ghc-options:      -Wall -fwarn-tabs -O2
 
