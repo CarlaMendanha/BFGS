@@ -5,3 +5,4 @@ curl localhost:8080/pergunta/2 -X PUT -d '{"enunciado": "tal tal tal", "pontos":
 curl localhost:8080/pergunta/2 -X DELETE
 curl localhost:8080/alternativa -X POST -d '{"texto":"testando1", "certa": true, "perguntaId": 2}'
 curl localhost:8080/alternativa/1 -X DELETE
+curl localhost:8080/alternativa/2 -X PUT -d  '{"texto":"testando2", "certa": false, "perguntaId": 2}'
