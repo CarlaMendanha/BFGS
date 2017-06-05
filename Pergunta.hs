@@ -16,6 +16,7 @@ import Database.Persist.Postgresql
 import Foundation
 import Network.HTTP.Types.Status
 import Data.List (find)
+import System.Random (randomRIO)
 
 -- Criando a pergunta no Banco de dados
 postPerguntaR :: Handler TypedContent
@@ -61,3 +62,13 @@ putBuscarPerguntaR perid  = do
     pergunta <- requireJsonBody :: Handler Pergunta -- procura
     runDB $ replace perid pergunta -- altera no banco
     sendStatusJSON ok200 (object ["id" .= (fromSqlKey perid)]) -- joga na tela
+
+getRandPerguntaR :: Handler TypedContent
+getRandPerguntaR = do
+    perguntas <- runDB $ selectList ([] :: [Filter Pergunta]) []
+    aleatoria <- liftIO $ fmap (perguntas !!) $ randomRIO (0, length perguntas - 1)
+    let pid = ((\(Entity key _) -> key) aleatoria)
+    let p = ((\(Entity _ perg) -> perg) aleatoria)
+    alternativas <- runDB $ selectList [AlternativaPerguntaId ==. pid] []
+    categoria <- runDB $ get404 (perguntaCategoriaId p)
+    sendStatusJSON ok200 (object ["id" .= pid,"enunciado" .= (perguntaEnunciado p), "pontos" .= (perguntaPontos p), "categoria" .= (categoriaNome categoria), "alternativas" .= alternativas])

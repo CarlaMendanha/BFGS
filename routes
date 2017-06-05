@@ -9,6 +9,7 @@
 
 /pergunta                       PerguntaR                   POST GET
 /pergunta/#PerguntaId           BuscarPerguntaR             GET DELETE PUT
+/aleatoria                      RandPerguntaR               GET
 
 /alternativa                    AlternativaR                POST
 /alternativa/#AlternativaId     BuscarAlternativaR          GET DELETE PUT

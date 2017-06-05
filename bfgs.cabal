@@ -29,5 +29,6 @@ executable          bfgs
                 , shakespeare
                 , time
                 , SHA2
+                , random
 
   ghc-options:    -threaded -O2 -rtsopts -with-rtsopts=-N
