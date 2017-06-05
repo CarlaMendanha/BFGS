@@ -1,6 +1,11 @@
-<div class="row my-3">
-    <div class="btn-group btn-group-lg" role="group" aria-label="Toolbar with button groups">
-        <a class="btn btn-primary" href="#/pergunta/nova" role="button"><i class="fa fa-plus"></i> Nova Pergunta</a>
+<div class="row my-3 align-items-center justify-content-between">
+    <div class="col-auto">
+        <div class="btn-group btn-group-lg" role="group" aria-label="Toolbar with button groups">
+            <a class="btn btn-primary" href="#/pergunta/nova" role="button"><i class="fa fa-plus"></i> Nova Pergunta</a>
+        </div>
+    </div>
+    <div class="col-auto">
+        <input type="text" ng-change="filtro.filtrar()" ng-model="filtro.texto" class="form-control form-control-lg" placeholder="Filtrar perguntas"/>
     </div>
 </div>
 <div class="row">

@@ -70,11 +70,17 @@ app.run(function($rootScope){
         $rootScope.flashMsg = null;
     }
     $rootScope.showError = function(e){
-        console.log(e);
+        console.error(e);
+        $rootScope.stopLoading();
         $rootScope.flashMsg = {
             tipo: 'danger',
             texto: 'Erro na requisição: '+e.statusText
         }
+    }
+    $rootScope.loading = false;
+    $rootScope.stopLoading = function(a){
+        $rootScope.loading = false;
+        return a;
     }
 })
 
@@ -89,6 +95,18 @@ app.controller('mainCtrl', function($rootScope, $scope, perguntas, Pergunta){
                     $scope.perguntas.splice(index, 1);
                 }
             });
+        }
+    }
+    
+    $scope.filtro = {
+        texto: '',
+        filtrar: function(){
+            if($scope.filtro.texto.length > 0){
+                var regex = new RegExp($scope.filtro.texto, 'i');
+                $scope.perguntas = perguntas.filter((x) => regex.test(x.enunciado));
+            }else{
+                $scope.perguntas = perguntas;
+            }
         }
     }
 });
@@ -196,16 +214,22 @@ app.controller('showPergunta', function($rootScope, $scope, $routeParams, pergun
                 texto: atual.texto,
                 perguntaId: perguntaId
             };
-            Alternativa.update(atual.id, novaAtual);
-            atual.certa = false;
+            Alternativa.update(atual.id, novaAtual).then(function(r){
+                if(r){
+                    atual.certa = false;
+                }
+            });
         }
         var data ={
             certa: !a.certa,
             texto: a.texto,
             perguntaId: perguntaId
         };
-        Alternativa.update(a.id, data);
-        a.certa = !a.certa;
+        Alternativa.update(a.id, data).then(function(r){
+            if(r){
+                a.certa = !a.certa;
+            }
+        });
     }
 
     $scope.add = function(){
@@ -229,38 +253,45 @@ app.controller('showPergunta', function($rootScope, $scope, $routeParams, pergun
 
 app.service('Categoria', function($http, $rootScope){
     this.all = function(){
-        return $http.get('/categoria/').catch(console.error);
+        $rootScope.loading = true;
+        return $http.get('/categoria/').then($rootScope.stopLoading).catch($rootScope.showError);
     }
 });
 
 app.service('Pergunta', function($http, $rootScope){
     this.get = function(id){
-        return $http.get('/pergunta/'+id).catch($rootScope.showError);
-        //return {id : 1, enunciado : "Qual a diferença entre o charme e o funk?", pontos: 3000, categoria: {id : 2, nome : "Esportes"}}
+        $rootScope.loading = true;
+        return $http.get('/pergunta/'+id).then($rootScope.stopLoading).catch($rootScope.showError);
     }
     this.all = function(){
-        //return [{id : 1, enunciado : "Qual a diferença entre o charme e o funk?", pontos: 3000, categoria: {id : 2, nome : "Esportes"}}]
-        return $http.get('/pergunta').catch($rootScope.showError);
+        $rootScope.loading = true;
+        return $http.get('/pergunta').then($rootScope.stopLoading).catch($rootScope.showError);
     }
     this.update = function(id, data){
-        return $http.put('/pergunta/'+id, data).catch($rootScope.showError);
+        $rootScope.loading = true;
+        return $http.put('/pergunta/'+id, data).then($rootScope.stopLoading).catch($rootScope.showError);
     }
     this.add = function(data){
-        return $http.post('/pergunta/', data).catch($rootScope.showError);
+        $rootScope.loading = true;
+        return $http.post('/pergunta/', data).then($rootScope.stopLoading).catch($rootScope.showError);
     }
     this.remove = function(id){
-        return $http.delete('/pergunta/'+id).catch($rootScope.showError);
+        $rootScope.loading = true;
+        return $http.delete('/pergunta/'+id).then($rootScope.stopLoading).catch($rootScope.showError);
     }
 });
 
 app.service('Alternativa', function($http, $rootScope){
     this.update = function(id, data){
-        return $http.put('/alternativa/'+id, data).catch($rootScope.showError);
+        $rootScope.loading = true;
+        return $http.put('/alternativa/'+id, data).then($rootScope.stopLoading).catch($rootScope.showError);
     }
     this.add = function(data){
-        return $http.post('/alternativa/', data).catch($rootScope.showError);
+        $rootScope.loading = true;
+        return $http.post('/alternativa/', data).then($rootScope.stopLoading).catch($rootScope.showError);
     }
     this.remove = function(id){
-        return $http.delete('/alternativa/'+id).catch($rootScope.showError);
+        $rootScope.loading = true;
+        return $http.delete('/alternativa/'+id).then($rootScope.stopLoading).catch($rootScope.showError);
     }
 })
