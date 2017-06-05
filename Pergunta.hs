@@ -53,11 +53,11 @@ deleteBuscarPerguntaR :: PerguntaId -> Handler TypedContent
 deleteBuscarPerguntaR perid = do
     _ <- runDB $ get404 perid -- verifica se existe
     runDB $ delete perid -- deleta no banco
-    sendStatusJSON noContent204 (object ["id" .= (fromSqlKey perid)]) -- joga na tela
+    sendStatusJSON ok200 (object ["id" .= (fromSqlKey perid)]) -- joga na tela
     
 -- Alterar pergunta no Banco de dados
 putBuscarPerguntaR :: PerguntaId -> Handler TypedContent
 putBuscarPerguntaR perid  = do
     pergunta <- requireJsonBody :: Handler Pergunta -- procura
     runDB $ replace perid pergunta -- altera no banco
-    sendStatusJSON noContent204 (object ["id" .= (fromSqlKey perid)]) -- joga na tela
+    sendStatusJSON ok200 (object ["id" .= (fromSqlKey perid)]) -- joga na tela

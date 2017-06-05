@@ -133,7 +133,7 @@ app.controller('novaPergunta', function($rootScope, $scope, $location, categoria
 app.controller('editarPergunta', function($rootScope, $scope, $location, categorias, pergunta, Pergunta){
     $rootScope.titulo = 'Editar pergunta';
     $scope.categorias = categorias;
-    $scope.botaoSalvar = "Adicionar";
+    $scope.botaoSalvar = 'Salvar';
     $scope.model = pergunta;
     $scope.voltar = function(){
         $location.path( "/" );

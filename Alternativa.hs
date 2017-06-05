@@ -27,7 +27,7 @@ deleteBuscarAlternativaR :: AlternativaId -> Handler TypedContent
 deleteBuscarAlternativaR altid = do
     _ <- runDB $ get404 altid
     runDB $ delete altid
-    sendStatusJSON noContent204 (object ["id" .= (fromSqlKey altid)])
+    sendStatusJSON ok200 (object ["id" .= (fromSqlKey altid)])
 
 getBuscarAlternativaR :: AlternativaId ->  Handler TypedContent
 getBuscarAlternativaR altid = do
@@ -38,4 +38,4 @@ putBuscarAlternativaR :: AlternativaId -> Handler TypedContent
 putBuscarAlternativaR altid = do
     alternativa <- requireJsonBody :: Handler Alternativa
     runDB $ replace altid alternativa
-    sendStatusJSON noContent204 (object ["id" .= (fromSqlKey altid)])
+    sendStatusJSON ok200 (object ["id" .= (fromSqlKey altid)])
