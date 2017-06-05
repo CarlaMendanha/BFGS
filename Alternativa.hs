@@ -23,5 +23,9 @@ postAlternativaR = do
     altid <- runDB $ insert alternativa
     sendStatusJSON created201 (object ["id" .= (fromSqlKey altid)])
 
-
+deleteBuscarAlternativaR :: AlternativaId -> Handler TypedContent
+deleteBuscarAlternativaR altid = do
+    _ <- runDB $ get404 altid
+    runDB $ delete altid
+    sendStatusJSON noContent204 (object ["id" .= (fromSqlKey altid)])
 
