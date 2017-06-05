@@ -12,12 +12,12 @@
 module Pergunta where
 
 import Yesod
-import Data.Text hiding (map) 
+import Data.Text hiding (replace) 
 import Database.Persist.Postgresql
 import Foundation
 import Network.HTTP.Types.Status
 
--- Usar o map do prelude e escondendo o map do data text.
+-- Usar o replace do prelude e escondendo o map do data text.
 
 -- Criando a pergunta no Banco de dados
 postPerguntaR :: Handler TypedContent
@@ -46,3 +46,9 @@ deleteBuscarPerguntaR perid = do
     runDB $ delete perid -- deleta no banco
     sendStatusJSON noContent204 (object ["id" .= (fromSqlKey perid)]) -- joga na tela
     
+-- Alterar pergunta no Banco de dados
+putBuscarPerguntaR :: PerguntaId -> Handler TypedContent
+putBuscarPerguntaR perid  = do
+    pergunta <- requireJsonBody :: Handler Pergunta -- procura
+    runDB $ replace perid pergunta -- altera no banco
+    sendStatusJSON noContent204 (object ["id" .= (fromSqlKey perid)]) -- joga na tela
