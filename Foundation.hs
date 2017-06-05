@@ -12,14 +12,18 @@
 module Foundation where
 
 import Yesod
+import Yesod.Static
 import Data.Text
 import Data.Time.Calendar
 import Database.Persist
 import Database.Persist.Postgresql
 
+staticFiles "admin"
+
 data App = App
     {
-        connPool       :: ConnectionPool
+        connPool       :: ConnectionPool,
+        getAdmin       :: Static
     }
 
 

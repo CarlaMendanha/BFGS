@@ -17,7 +17,7 @@
     <div class="col-12">
         <button ng-click="add()" class="pull-right btn btn-primary my-3"><i class="fa fa-plus"></i> Adicionar alternativa</button>
         <div class="list-group list d-flex w-100">
-            <div ng-repeat="a in alternativas" ng-class="a.certa?'list-group-item-success':''" class="list-group-item justify-content-between">
+            <div ng-repeat="a in pergunta.alternativas" ng-class="a.certa?'list-group-item-success':''" class="list-group-item justify-content-between">
                 {{a.texto}}
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <button ng-click="editar($index)" type="button" class="btn pointer btn-secondary"><i class="fa fa-pencil"></i></button>

@@ -2,6 +2,7 @@
 import Application () -- for YesodDispatch instance
 import Foundation
 import Yesod
+import Yesod.Static
 import Control.Monad.Logger (runStdoutLoggingT)
 import Database.Persist.Postgresql
 import Data.Text
@@ -12,5 +13,6 @@ connStr = "dbname=d3c2fkni2plsi2 host=ec2-54-243-185-132.compute-1.amazonaws.com
 
 main :: IO ()
 main = runStdoutLoggingT $ withPostgresqlPool (encodeUtf8 connStr) 10 $ \pool -> liftIO $ do
+    admin@(Static settings) <- static "admin"
     runSqlPersistMPool (runMigration migrateAll) pool 
-    warp 8080 (App pool)
+    warp 8080 (App pool admin)

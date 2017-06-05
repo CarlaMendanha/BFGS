@@ -7,7 +7,11 @@ app.config(function($routeProvider) {
         controller: "mainCtrl",
         resolve: {
             perguntas: function(Pergunta){
-                return Pergunta.all()
+                return Pergunta.all().then(function(d){
+                    if(d){
+                        return d.data
+                    }
+                })
             }
         }
     })
@@ -16,7 +20,11 @@ app.config(function($routeProvider) {
         controller: "novaPergunta",
         resolve: {
             categorias: function(Categoria){
-                return Categoria.all();
+                return Categoria.all().then(function(d){
+                    if(d){
+                        return d.data
+                    }
+                });
             }
         }
     })
@@ -25,10 +33,18 @@ app.config(function($routeProvider) {
         controller: "editarPergunta",
         resolve: {
             categorias: function(Categoria){
-                return Categoria.all();
+                return Categoria.all().then(function(d){
+                    if(d){
+                        return d.data
+                    }
+                });
             },
             pergunta: function(Pergunta, $route){
-                return Pergunta.get($route.current.params.id)
+                return Pergunta.get($route.current.params.id).then(function(d){
+                    if(d){
+                        return d.data
+                    }
+                });
             },
         }
     })
@@ -37,7 +53,11 @@ app.config(function($routeProvider) {
         controller: "showPergunta",
         resolve: {
             pergunta: function(Pergunta, $route){
-                return Pergunta.get($route.current.params.id)
+                return Pergunta.get($route.current.params.id).then(function(d){
+                    if(d){
+                        return d.data
+                    }
+                });
             }
         }
     })
@@ -110,7 +130,7 @@ app.controller('novaPergunta', function($rootScope, $scope, $location, categoria
     }
 });
 
-app.controller('editarPergunta', function($rootScope, $scope, $location, categorias, pergunta){
+app.controller('editarPergunta', function($rootScope, $scope, $location, categorias, pergunta, Pergunta){
     $rootScope.titulo = 'Editar pergunta';
     $scope.categorias = categorias;
     $scope.botaoSalvar = "Adicionar";
@@ -120,10 +140,20 @@ app.controller('editarPergunta', function($rootScope, $scope, $location, categor
     };
     $scope.salvar = function(){
         var data = Object.assign({}, $scope.model);
+        var id = data.id;
         data.categoriaId = data.categoria.id;
         delete data.categoria;
         delete data.id;
-        console.log(data);
+        delete data.alternativas
+        Pergunta.update(id, data).then(function(r){
+            if(r){
+                $rootScope.flashMsg = {
+                    tipo: 'success',
+                    texto: 'Pergunta modificada com sucesso!'
+                }
+                $location.path( "/" );
+            }
+        });
     }
 });
 
@@ -131,13 +161,8 @@ app.controller('showPergunta', function($rootScope, $scope, $routeParams, pergun
     var perguntaId = parseInt($routeParams.id, 10);
     $rootScope.titulo = 'Pergunta #'+perguntaId;
     $scope.pergunta = pergunta;
-
-    $scope.alternativas = [
-        {id:1, texto: "Alt1", certa: true},
-        {id:2, texto: "Alt2", certa: false},
-    ];
     $scope.editar = function(index){
-        var a = $scope.alternativas[index];
+        var a = $scope.pergunta.alternativas[index];
         var novoTexto = prompt("Digite o novo texto para a pergunta:");
         if(novoTexto.length > 0){
             var data ={
@@ -153,41 +178,34 @@ app.controller('showPergunta', function($rootScope, $scope, $routeParams, pergun
         }
     }
     $scope.remover = function(index){
-        var a = $scope.alternativas[index];
+        var a = $scope.pergunta.alternativas[index];
         if(confirm("Tem certeza que deseja remover esta alternativa?")){
             Alternativa.remove(a.id).then(function(r){
                 if(r){
-                    $scope.alternativas.splice(index, 1);
+                    $scope.pergunta.alternativas.splice(index, 1);
                 }
             })
         }
     }
     $scope.marcar = function(index){
-        var a = $scope.alternativas[index];
-        var atual = $scope.alternativas.find((x) => x.certa);
+        var a = $scope.pergunta.alternativas[index];
+        var atual = $scope.pergunta.alternativas.find((x) => x.certa);
         if(atual){
-            var data ={
+            var novaAtual = {
                 certa: false,
                 texto: atual.texto,
                 perguntaId: perguntaId
             };
-            Alternativa.update(a.id, data).then(function(r){
-                if(r){
-                    a.texto = novoTexto;
-                    atual.certa = false;
-                }
-            });
+            Alternativa.update(atual.id, novaAtual);
+            atual.certa = false;
         }
         var data ={
             certa: !a.certa,
             texto: a.texto,
             perguntaId: perguntaId
         };
-        Alternativa.update(a.id, data).then(function(r){
-            if(r){
-                a.certa = !a.certa;
-            }
-        });
+        Alternativa.update(a.id, data);
+        a.certa = !a.certa;
     }
 
     $scope.add = function(){
@@ -200,9 +218,9 @@ app.controller('showPergunta', function($rootScope, $scope, $routeParams, pergun
             };
             Alternativa.add(data).then(function(r){
                 if(r){
-                    data.id = r.id;
+                    data.id = r.data.id;
                     delete data.perguntaId;
-                    $scope.alternativas.push(data);
+                    $scope.pergunta.alternativas.push(data);
                 }
             });
         }
@@ -211,11 +229,7 @@ app.controller('showPergunta', function($rootScope, $scope, $routeParams, pergun
 
 app.service('Categoria', function($http, $rootScope){
     this.all = function(){
-        //return $http.get('/categoria/').catch(console.error);
-        return [
-            {id : 1, nome : "Variedades"},
-            {id : 2, nome : "Esportes"},
-        ];
+        return $http.get('/categoria/').catch(console.error);
     }
 });
 
@@ -225,7 +239,7 @@ app.service('Pergunta', function($http, $rootScope){
         //return {id : 1, enunciado : "Qual a diferença entre o charme e o funk?", pontos: 3000, categoria: {id : 2, nome : "Esportes"}}
     }
     this.all = function(){
-        return [{id : 1, enunciado : "Qual a diferença entre o charme e o funk?", pontos: 3000, categoria: {id : 2, nome : "Esportes"}}]
+        //return [{id : 1, enunciado : "Qual a diferença entre o charme e o funk?", pontos: 3000, categoria: {id : 2, nome : "Esportes"}}]
         return $http.get('/pergunta').catch($rootScope.showError);
     }
     this.update = function(id, data){
