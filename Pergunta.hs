@@ -31,7 +31,8 @@ getBuscarPerguntaR :: PerguntaId -> Handler TypedContent
 getBuscarPerguntaR perid = do
     pergunta <- runDB $ get404 perid  -- se o id existe ele retorna (busca no banco) / select no banco
     categoria <- runDB $ get404 (perguntaCategoriaId pergunta) -- pegar o id e nome da categoria
-    sendStatusJSON ok200 (object ["id" .= (perid), "enunciado" .=(perguntaEnunciado pergunta), "pontos" .=(perguntaPontos pergunta), "categoria" .=(object ["id" .= (perguntaCategoriaId pergunta), "nome" .=(categoriaNome categoria)])]) --  criando na mao o join /joga na tela a busca
+    alternativas <- runDB $ selectList [AlternativaPerguntaId ==. perid ] [] -- seleciona as alternativas dessa pergunta
+    sendStatusJSON ok200 (object ["alternativas".= (alternativas), "id" .= (perid), "enunciado" .=(perguntaEnunciado pergunta), "pontos" .=(perguntaPontos pergunta), "categoria" .=(object ["id" .= (perguntaCategoriaId pergunta), "nome" .=(categoriaNome categoria)])]) --  criando na mao o join /joga na tela a busca
     
 -- Listar pergunta no Banco de dados
 getPerguntaR :: Handler TypedContent
