@@ -27,7 +27,7 @@ data App = App
     }
 
 
-share [mkPersist sqlSettings, mkMigrate "migrateAll"] [persistLowerCase|
+share [mkPersist sqlSettings, mkDeleteCascade sqlOnlySettings, mkMigrate "migrateAll"] [persistLowerCase|
     Usuario json
         nome Text
         email Text

@@ -53,7 +53,7 @@ getPerguntaR  =
 deleteBuscarPerguntaR :: PerguntaId -> Handler TypedContent
 deleteBuscarPerguntaR perid = do
     _ <- runDB $ get404 perid -- verifica se existe
-    runDB $ delete perid -- deleta no banco
+    runDB $ deleteCascade perid -- deleta no banco
     sendStatusJSON ok200 (object ["id" .= (fromSqlKey perid)]) -- joga na tela
     
 -- Alterar pergunta no Banco de dados
