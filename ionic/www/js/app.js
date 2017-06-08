@@ -46,5 +46,10 @@ angular.module('bfgs', ['ionic', 'bfgs.controllers', 'bfgs.services'])
     controller: 'questaoCtrl'
   })
   
+    .state('errou', {
+    url: '/errou',
+    templateUrl: 'templates/errou.html',
+  })
+  
         $urlRouterProvider.otherwise('/login');
     });

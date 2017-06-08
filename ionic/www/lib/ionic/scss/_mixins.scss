@@ -6,7 +6,9 @@
   border-color: $border-color;
   background-color: $bg-color;
   color: $color;
-
+  box-shadow: 0 0.4em darken($bg-color, 20%);
+  border-radius: 0.4em;
+  margin-bottom: 0.4em;
   // Give desktop users something to play with
   &:hover {
     color: $color;

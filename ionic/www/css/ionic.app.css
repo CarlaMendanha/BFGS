@@ -15,52 +15,11 @@ $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
-/*.inicio{
-	.scroll{
-		display: flex;
-		flex-direction: column;
-		height: 100em;
-	}
-	.logo{
-		background: $positive;
-		flex-grow: 1;
-		align-items: center;
-		display: flex;
-		img{
-			display: block;
-			margin: auto;
-		}
-	}
-	.tabs {
-		position: relative;
-		top: 0;
-		margin-top: -1px;
-		border-bottom-color: transparent;
-		box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.3);
-	}
-}*/
-.login .logo {
-  height: 30em;
-  margin: auto;
-  width: auto;
-  display: block;
-  padding: 5em; }
-
-.login .campos {
-  border-top: transparent;
-  border-left: transparent;
-  border-right: transparent; }
-  .login .campos span, .login .campos input {
-    color: #fff; }
-
-.login .button.button-light.button-outline.activated {
-  color: #705B95; }
-
-* {
-  font-family: "Roboto", "Helvetica Neue", "Segoe UI", sans-serif; }
-
-.buttons {
-  box-shadow: 0px 15px 0px 0px #f2f2f2, 0px 0px 20px 0px #bbb; }
+.total-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle; }
 
 /*!
   Ionicons, v2.0.1
@@ -4146,7 +4105,10 @@ a.subdued {
 .bar-light .button {
   border-color: #ddd;
   background-color: white;
-  color: #444; }
+  color: #444;
+  box-shadow: 0 0.4em #cccccc;
+  border-radius: 0.4em;
+  margin-bottom: 0.4em; }
   .bar-light .button:hover {
     color: #444;
     text-decoration: none; }
@@ -4166,7 +4128,10 @@ a.subdued {
 .bar-stable .button {
   border-color: #b2b2b2;
   background-color: #f8f8f8;
-  color: #444; }
+  color: #444;
+  box-shadow: 0 0.4em #c5c5c5;
+  border-radius: 0.4em;
+  margin-bottom: 0.4em; }
   .bar-stable .button:hover {
     color: #444;
     text-decoration: none; }
@@ -4186,7 +4151,10 @@ a.subdued {
 .bar-positive .button {
   border-color: #584875;
   background-color: #705b95;
-  color: #fff; }
+  color: #fff;
+  box-shadow: 0 0.4em #403456;
+  border-radius: 0.4em;
+  margin-bottom: 0.4em; }
   .bar-positive .button:hover {
     color: #fff;
     text-decoration: none; }
@@ -4206,7 +4174,10 @@ a.subdued {
 .bar-calm .button {
   border-color: #cbc5d6;
   background-color: #e6e3eb;
-  color: #fff; }
+  color: #fff;
+  box-shadow: 0 0.4em #b1a8c1;
+  border-radius: 0.4em;
+  margin-bottom: 0.4em; }
   .bar-calm .button:hover {
     color: #fff;
     text-decoration: none; }
@@ -4226,7 +4197,10 @@ a.subdued {
 .bar-assertive .button {
   border-color: #f24141;
   background-color: #f57171;
-  color: #fff; }
+  color: #fff;
+  box-shadow: 0 0.4em #ee1212;
+  border-radius: 0.4em;
+  margin-bottom: 0.4em; }
   .bar-assertive .button:hover {
     color: #fff;
     text-decoration: none; }
@@ -4246,7 +4220,10 @@ a.subdued {
 .bar-balanced .button {
   border-color: #53c99a;
   background-color: #7ad5b1;
-  color: #fff; }
+  color: #fff;
+  box-shadow: 0 0.4em #38b181;
+  border-radius: 0.4em;
+  margin-bottom: 0.4em; }
   .bar-balanced .button:hover {
     color: #fff;
     text-decoration: none; }
@@ -4266,7 +4243,10 @@ a.subdued {
 .bar-energized .button {
   border-color: #e0b300;
   background-color: #f9c700;
-  color: #fff; }
+  color: #fff;
+  box-shadow: 0 0.4em #937500;
+  border-radius: 0.4em;
+  margin-bottom: 0.4em; }
   .bar-energized .button:hover {
     color: #fff;
     text-decoration: none; }
@@ -4286,7 +4266,10 @@ a.subdued {
 .bar-royal .button {
   border-color: #7c699e;
   background-color: #9282ae;
-  color: #fff; }
+  color: #fff;
+  box-shadow: 0 0.4em #5f4f7b;
+  border-radius: 0.4em;
+  margin-bottom: 0.4em; }
   .bar-royal .button:hover {
     color: #fff;
     text-decoration: none; }
@@ -4306,7 +4289,10 @@ a.subdued {
 .bar-dark .button {
   border-color: #111;
   background-color: #444444;
-  color: #fff; }
+  color: #fff;
+  box-shadow: 0 0.4em #111111;
+  border-radius: 0.4em;
+  margin-bottom: 0.4em; }
   .bar-dark .button:hover {
     color: #fff;
     text-decoration: none; }
@@ -8624,6 +8610,9 @@ progress {
   border-color: transparent;
   background-color: #f8f8f8;
   color: #444;
+  box-shadow: 0 0.4em #c5c5c5;
+  border-radius: 0.4em;
+  margin-bottom: 0.4em;
   position: relative;
   display: inline-block;
   margin: 0;
@@ -8676,7 +8665,10 @@ progress {
   .button.button-light {
     border-color: transparent;
     background-color: #fff;
-    color: #444; }
+    color: #444;
+    box-shadow: 0 0.4em #cccccc;
+    border-radius: 0.4em;
+    margin-bottom: 0.4em; }
     .button.button-light:hover {
       color: #444;
       text-decoration: none; }
@@ -8702,7 +8694,10 @@ progress {
   .button.button-stable {
     border-color: transparent;
     background-color: #f8f8f8;
-    color: #444; }
+    color: #444;
+    box-shadow: 0 0.4em #c5c5c5;
+    border-radius: 0.4em;
+    margin-bottom: 0.4em; }
     .button.button-stable:hover {
       color: #444;
       text-decoration: none; }
@@ -8728,7 +8723,10 @@ progress {
   .button.button-positive {
     border-color: transparent;
     background-color: #705B95;
-    color: #fff; }
+    color: #fff;
+    box-shadow: 0 0.4em #403456;
+    border-radius: 0.4em;
+    margin-bottom: 0.4em; }
     .button.button-positive:hover {
       color: #fff;
       text-decoration: none; }
@@ -8754,7 +8752,10 @@ progress {
   .button.button-calm {
     border-color: transparent;
     background-color: #e6e3eb;
-    color: #fff; }
+    color: #fff;
+    box-shadow: 0 0.4em #b1a8c1;
+    border-radius: 0.4em;
+    margin-bottom: 0.4em; }
     .button.button-calm:hover {
       color: #fff;
       text-decoration: none; }
@@ -8780,7 +8781,10 @@ progress {
   .button.button-assertive {
     border-color: transparent;
     background-color: #f57171;
-    color: #fff; }
+    color: #fff;
+    box-shadow: 0 0.4em #ee1212;
+    border-radius: 0.4em;
+    margin-bottom: 0.4em; }
     .button.button-assertive:hover {
       color: #fff;
       text-decoration: none; }
@@ -8806,7 +8810,10 @@ progress {
   .button.button-balanced {
     border-color: transparent;
     background-color: #7ad5b1;
-    color: #fff; }
+    color: #fff;
+    box-shadow: 0 0.4em #38b181;
+    border-radius: 0.4em;
+    margin-bottom: 0.4em; }
     .button.button-balanced:hover {
       color: #fff;
       text-decoration: none; }
@@ -8832,7 +8839,10 @@ progress {
   .button.button-energized {
     border-color: transparent;
     background-color: #f9c700;
-    color: #fff; }
+    color: #fff;
+    box-shadow: 0 0.4em #937500;
+    border-radius: 0.4em;
+    margin-bottom: 0.4em; }
     .button.button-energized:hover {
       color: #fff;
       text-decoration: none; }
@@ -8858,7 +8868,10 @@ progress {
   .button.button-royal {
     border-color: transparent;
     background-color: #9282ae;
-    color: #fff; }
+    color: #fff;
+    box-shadow: 0 0.4em #5f4f7b;
+    border-radius: 0.4em;
+    margin-bottom: 0.4em; }
     .button.button-royal:hover {
       color: #fff;
       text-decoration: none; }
@@ -8884,7 +8897,10 @@ progress {
   .button.button-dark {
     border-color: transparent;
     background-color: #444;
-    color: #fff; }
+    color: #fff;
+    box-shadow: 0 0.4em #111111;
+    border-radius: 0.4em;
+    margin-bottom: 0.4em; }
     .button.button-dark:hover {
       color: #fff;
       text-decoration: none; }
@@ -9861,3 +9877,43 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+.loginCadastro .cad {
+  color: #fff !important; }
+
+.loginCadastro .logo {
+  height: 30em;
+  margin: auto;
+  width: 100vw;
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle; }
+  .loginCadastro .logo img {
+    width: 100vw;
+    max-height: 25em; }
+
+.loginCadastro .campos {
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent; }
+  .loginCadastro .campos span, .loginCadastro .campos input {
+    color: #fff; }
+    .loginCadastro .campos span::-moz-placeholder, .loginCadastro .campos input::-moz-placeholder {
+      color: #fff; }
+    .loginCadastro .campos span:-ms-input-placeholder, .loginCadastro .campos input:-ms-input-placeholder {
+      color: #fff; }
+    .loginCadastro .campos span::-webkit-input-placeholder, .loginCadastro .campos input::-webkit-input-placeholder {
+      color: #fff;
+      text-indent: 0; }
+
+.fausto h1 {
+  color: #f9c700;
+  font-size: 3em; }
+
+* {
+  font-family: "Roboto", "Helvetica Neue", "Segoe UI", sans-serif; }
+
+.buttons {
+  box-shadow: 0px 5px 0px 0px #737373, 0px 0px 10px 0px #bbb; }

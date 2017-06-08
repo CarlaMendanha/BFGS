@@ -34,19 +34,20 @@ $cotidiano:                       #b67ad5;
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
-
 // Include all of Ionic
-//@import "helper"; -> lembrar
+@import "helper"; 
+@import "../www/lib/ionic/scss/ionic";
 @import "login";
+@import "fausto";
+
+
 
 * {
     font-family:  "Roboto", "Helvetica Neue", "Segoe UI", sans-serif;
 }
 
 .buttons {
-  box-shadow: 0px 15px 0px 0px darken($light, 5%), 0px 0px 20px 0px #bbb;
+  box-shadow: 0px 5px 0px 0px darken(#808080, 5%), 0px 0px 10px 0px #bbb;
 }
 
-// Include all of Ionic
-@import "www/lib/ionic/scss/ionic";
 

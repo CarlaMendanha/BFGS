@@ -1,18 +1,18 @@
 <ion-view title="Login" hide-nav-bar="true">
-    <ion-content class="royal-bg">
+    <ion-content class="royal-bg loginCadastro">
         <div class="positive-bg logo">
             <img src="img/logo.svg" />
         </div>
         <form>
-            <div class="list padding login">
+            <div class="list padding">
                 <label class="item item-input item-floating-label campos">
-				<span class="input-label">EMAIL</span>
-				<input type="email" ng-model="loginData.email">
+				<span class="input-label">E-mail</span>
+				<input type="email"placeholder="Insira seu e-mail" ng-model="loginData.email">
 	    </label>
 
                 <label class="item item-input item-floating-label campos">
-				<span class="input-label">SENHA</span>
-				<input type="password" ng-model="loginData.password">
+				<span class="input-label">Senha</span>
+				<input type="password" placeholder="Insira sua senha" ng-model="loginData.password">
 	    </label>
             </div>
             <div class="padding">
@@ -20,7 +20,7 @@
             </div>
         </form>
         <div class="text-center">
-            <a ui-sref="cadastro">Não sou cadastrado</a>
+            <a class="cad" ui-sref="cadastro">Não sou cadastrado</a>
         </div>
     </ion-content>
 </ion-view>

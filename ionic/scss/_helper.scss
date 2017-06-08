@@ -1,0 +1,13 @@
+//Mixins
+@mixin total-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+
+.total-center{
+	@include total-center;
+}
+
