@@ -39,5 +39,12 @@ angular.module('bfgs', ['ionic', 'bfgs.controllers', 'bfgs.services'])
     templateUrl: 'templates/cadastro.html',
     controller: 'cadastroCtrl'
   })
+  
+    .state('questao', {
+    url: '/questao',
+    templateUrl: 'templates/questao.html',
+    controller: 'questaoCtrl'
+  })
+  
         $urlRouterProvider.otherwise('/login');
     });

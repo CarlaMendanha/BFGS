@@ -43,6 +43,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     font-family:  "Roboto", "Helvetica Neue", "Segoe UI", sans-serif;
 }
 
+.buttons {
+  box-shadow: 0px 15px 0px 0px darken($light, 5%), 0px 0px 20px 0px #bbb;
+}
+
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 

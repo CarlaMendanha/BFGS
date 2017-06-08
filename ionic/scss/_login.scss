@@ -24,34 +24,23 @@
 }*/
 
 .login{
-
-	p{
-		color: $light;
-	}
 	
-		.logo{
-		background: $positive;
-		flex-grow: 1;
-		align-items: center;
-		display: flex;
-		img{
-			display: block;
-			margin: auto;
-		}
+	 .logo{
+   		height: 30em;
+   		margin: auto;
+    	width: auto;
+   		display: block;
+    	padding: 5em;
+	
 	}
 
 	.campos{
-		border: transparent;
+		border-top: transparent;
+		border-left: transparent;
+		border-right: transparent;
 		span, input{
 			color: $light;
 
-		}
-		.place-light{
-			color: $light !important;
-		}
-		i{
-			font-size: 1.6em;
-			color: $light;
 		}
 	}
 

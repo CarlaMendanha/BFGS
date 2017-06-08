@@ -39,26 +39,18 @@ $dark:                            #444 !default;
 		box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.3);
 	}
 }*/
-.login p {
-  color: #fff; }
-
 .login .logo {
-  background: #705B95;
-  flex-grow: 1;
-  align-items: center;
-  display: flex; }
-  .login .logo img {
-    display: block;
-    margin: auto; }
+  height: 30em;
+  margin: auto;
+  width: auto;
+  display: block;
+  padding: 5em; }
 
 .login .campos {
-  border: transparent; }
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent; }
   .login .campos span, .login .campos input {
-    color: #fff; }
-  .login .campos .place-light {
-    color: #fff !important; }
-  .login .campos i {
-    font-size: 1.6em;
     color: #fff; }
 
 .login .button.button-light.button-outline.activated {
@@ -66,6 +58,9 @@ $dark:                            #444 !default;
 
 * {
   font-family: "Roboto", "Helvetica Neue", "Segoe UI", sans-serif; }
+
+.buttons {
+  box-shadow: 0px 15px 0px 0px #f2f2f2, 0px 0px 20px 0px #bbb; }
 
 /*!
   Ionicons, v2.0.1
