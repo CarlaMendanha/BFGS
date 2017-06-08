@@ -1,25 +1,22 @@
 <ion-view title="Login">
-    <ion-header-bar>
-    <h1 class="title">Login</h1>
-    <div class="buttons">
-      <button class="button button-clear" ng-click="closeLogin()">Close</button>
-    </div>
-  </ion-header-bar>
   <ion-content>
-    <form ng-submit="doLogin()">
+    <form>
       <div class="list">
         <label class="item item-input">
-          <span class="input-label">Username</span>
-          <input type="text" ng-model="loginData.username">
+          <span class="input-label">E-mail</span>
+          <input type="email" ng-model="loginData.email">
         </label>
         <label class="item item-input">
-          <span class="input-label">Password</span>
+          <span class="input-label">Senha</span>
           <input type="password" ng-model="loginData.password">
-        </label>
-        <label class="item">
-          <button class="button button-block button-positive" type="submit">Log in</button>
         </label>
       </div>
     </form>
+        <div class="padding">
+          <button ng-click="doLogin()" class="button button-block button-positive" type="button">Login</button>
+        </div>
+    <div class="text-center">
+      <a ui-sref="cadastro">Não sou cadastrado</a>
+    </div>
   </ion-content>
 </ion-view>

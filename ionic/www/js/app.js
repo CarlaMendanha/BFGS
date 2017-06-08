@@ -3,9 +3,10 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('bfgs', ['ionic', 'bfgs.controllers'])
+angular.module('bfgs', ['ionic', 'bfgs.controllers', 'bfgs.services'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $http) {
+  $http.defaults.headers.post["Content-Type"] = "text/plain";
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -29,6 +30,11 @@ angular.module('bfgs', ['ionic', 'bfgs.controllers'])
                 url: '/login',
                 templateUrl: 'templates/login.html',
                 controller: 'loginCtrl'
-            });
+            })
+            .state('cadastro', {
+                url: '/cadastro',
+                templateUrl: 'templates/cadastro.html',
+                controller: 'cadastroCtrl'
+            })
         $urlRouterProvider.otherwise('/login');
     });
