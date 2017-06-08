@@ -26,15 +26,18 @@ angular.module('bfgs', ['ionic', 'bfgs.controllers', 'bfgs.services'])
 
 .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
-            .state('login', {
-                url: '/login',
-                templateUrl: 'templates/login.html',
-                controller: 'loginCtrl'
-            })
-            .state('cadastro', {
-                url: '/cadastro',
-                templateUrl: 'templates/cadastro.html',
-                controller: 'cadastroCtrl'
-            })
+
+  .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller: 'loginCtrl'
+  })
+
+
+  .state('cadastro', {
+    url: '/cadastro',
+    templateUrl: 'templates/cadastro.html',
+    controller: 'cadastroCtrl'
+  })
         $urlRouterProvider.otherwise('/login');
     });

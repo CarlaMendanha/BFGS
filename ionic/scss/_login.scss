@@ -1,0 +1,61 @@
+/*.inicio{
+	.scroll{
+		display: flex;
+		flex-direction: column;
+		height: 100em;
+	}
+	.logo{
+		background: $positive;
+		flex-grow: 1;
+		align-items: center;
+		display: flex;
+		img{
+			display: block;
+			margin: auto;
+		}
+	}
+	.tabs {
+		position: relative;
+		top: 0;
+		margin-top: -1px;
+		border-bottom-color: transparent;
+		box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.3);
+	}
+}*/
+
+.login{
+
+	p{
+		color: $light;
+	}
+	
+		.logo{
+		background: $positive;
+		flex-grow: 1;
+		align-items: center;
+		display: flex;
+		img{
+			display: block;
+			margin: auto;
+		}
+	}
+
+	.campos{
+		border: transparent;
+		span, input{
+			color: $light;
+
+		}
+		.place-light{
+			color: $light !important;
+		}
+		i{
+			font-size: 1.6em;
+			color: $light;
+		}
+	}
+
+	.button.button-light.button-outline.activated{
+		color: $positive;
+	}
+}

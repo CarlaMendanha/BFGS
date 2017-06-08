@@ -1,0 +1,19 @@
+<ion-view view-title="">
+    <ion-nav-title>
+        <div class="logo">
+            <img src="img/logo.svg" />
+        </div>
+    </ion-nav-title>
+    <ion-content class="inicio">
+            <div class="row">
+                <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
+                    <div class="tabs">
+                    <a class="tab-item" ng-class="{active: state.current.name == 'inicio.login'}" href="#">Login</a>
+                    <a class="tab-item" ng-class="{active: state.current.name == 'inicio.cadastro'}" href="#/inicio/cadastro">Cadastrar</a>
+                </div>
+                </div>
+            </div>
+        <!--<ui-view name="inicio">-->
+        <!--</ui-view>-->
+    </ion-content>
+</ion-view>

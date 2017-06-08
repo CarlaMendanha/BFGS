@@ -15,12 +15,34 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
+$positive:                        #705B95; //roxo forte
+$royal:                           #9282ae; //roxinho
+$calm:                            #e6e3eb; //lilas fofinho
+$energized:                       #f9c700; //amarelo
+$balanced:                        #7ad5b1; //certo
+$assertive:                       #f57171; //errado
+$light:                           #fff;
+
+//Mais cores
+$variedades:                      #dc5367;
+$esportes:                        #e69f79;
+$geografia:                       #79bee6;
+$historia:                        #ead17b;
+$ciencia:                         #7ad5b1;
+$cotidiano:                       #b67ad5;
+
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
-*{
-    color: red !important //QUEM SERÁ QUE DEIXOU TUDO VERMELHO?????? Eu nao consigo adivinhar XD muito dificil ;
+
+// Include all of Ionic
+//@import "helper"; -> lembrar
+@import "login";
+
+* {
+    font-family:  "Roboto", "Helvetica Neue", "Segoe UI", sans-serif;
 }
+
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
