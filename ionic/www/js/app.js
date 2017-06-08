@@ -51,5 +51,11 @@ angular.module('bfgs', ['ionic', 'bfgs.controllers', 'bfgs.services'])
     templateUrl: 'templates/errou.html',
   })
   
+      .state('acertou', {
+    url: '/acertou',
+    templateUrl: 'templates/acertou.html',
+  })
+  
+  
         $urlRouterProvider.otherwise('/login');
     });
