@@ -18,6 +18,7 @@ import Network.HTTP.Types.Status
 import Utils
 import Data.List (find)
 import Data.Text hiding (find)
+import Utils
 
 postPartidaR :: Handler TypedContent
 postPartidaR = do
@@ -28,6 +29,7 @@ postPartidaR = do
 
 getPlacarR :: Handler TypedContent
 getPlacarR = do
+    enableCors
     partidas <- runDB $ selectList [] [Desc PartidaPontuacao, LimitTo 5]
     usuarioIds <- return $ fmap (partidaUsuarioId . entityVal) partidas
     usuarios <- runDB $ selectList [UsuarioId <-. usuarioIds] []
