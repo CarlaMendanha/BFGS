@@ -17,6 +17,7 @@ import Foundation
 import Network.HTTP.Types.Status
 import Data.List (find)
 import System.Random (randomRIO)
+import Utils
 
 -- Criando a pergunta no Banco de dados
 postPerguntaR :: Handler TypedContent
@@ -65,6 +66,7 @@ putBuscarPerguntaR perid  = do
 
 getRandPerguntaR :: Handler TypedContent
 getRandPerguntaR = do
+    enableCors
     perguntas <- runDB $ selectList ([] :: [Filter Pergunta]) []
     aleatoria <- liftIO $ fmap (perguntas !!) $ randomRIO (0, length perguntas - 1)
     let pid = ((\(Entity key _) -> key) aleatoria)
