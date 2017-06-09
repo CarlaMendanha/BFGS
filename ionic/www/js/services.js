@@ -58,7 +58,6 @@ angular.module('bfgs.services', [])
 
     this.temQueEstarLogado = function() {
         var u = this.get();
-        console.log(u);
         if (!u.id || !u.nome || u.nome === 'undefined') {
             $state.go('login');
         }

@@ -10227,7 +10227,8 @@ img.fausto {
   box-shadow: 0 0.5em 0 #d9d9d9;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  animation: button-round-in .5s ease; }
   .button-round.big {
     width: 70vw;
     height: 70vw;
@@ -10239,6 +10240,12 @@ img.fausto {
   .button-round i {
     font-size: 13vw;
     color: #9282ae; }
+
+@keyframes button-round-in {
+  from {
+    transform: rotate(-180deg) scale(0); }
+  to {
+    transform: rotate(0) scale(1); } }
 
 * {
   font-family: "Roboto", "Helvetica Neue", "Segoe UI", sans-serif; }

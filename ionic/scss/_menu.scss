@@ -20,6 +20,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: button-round-in .5s ease;
     &.big {
         $cor-borda: darken($calm, 10%);
         $tamanho-borda: 1.5em;
@@ -35,5 +36,14 @@
     i{
         font-size: 13vw;
         color: $royal;
+    }
+}
+
+@keyframes button-round-in{
+    from{
+        transform: rotate(-180deg) scale(0);
+    }
+    to{
+        transform: rotate(0) scale(1);
     }
 }

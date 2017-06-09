@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div ng-class="animation.state" id="proxima" class="padding">
-                <button ng-disabled="!pergunta.respondeu && partida.pulos < 1" ng-click="continuar()" class="button button-block button-{{pergunta.categoria.toLowerCase()}}">{{pergunta.respondeu?'Continuar':'Pular'}}</button>
+                <button ng-disabled="!pergunta.respondeu && partida.pulos < 1" ng-click="continuar()" class="button button-block button-{{pergunta.categoria.toLowerCase()}}">{{pergunta.respondeu?'Continuar':('Pular ('+partida.pulos+')')}}</button>
             </div>
             <!-- DEBUG
             <h3>Pontos: {{partida.pontuacao}}</h3>
