@@ -16,6 +16,8 @@ import Database.Persist.Postgresql
 import Foundation
 import Network.HTTP.Types.Status
 import Utils
+import Data.List (find)
+import Data.Text hiding (find)
 
 postPartidaR :: Handler TypedContent
 postPartidaR = do
@@ -27,5 +29,11 @@ postPartidaR = do
 getPlacarR :: Handler TypedContent
 getPlacarR = do
     partidas <- runDB $ selectList [] [Desc PartidaPontuacao, LimitTo 5]
-    sendStatusJSON ok200 partidas
+    usuarioIds <- return $ fmap (partidaUsuarioId . entityVal) partidas
+    usuarios <- runDB $ selectList [UsuarioId <-. usuarioIds] []
+    json <- return $ fmap (\(Entity _ p) -> object ["pontuacao" .= partidaPontuacao p, "data" .= partidaDia p, "usuario" .=  pegarNome (find (\u -> entityKey u == partidaUsuarioId p) usuarios)]) partidas
+    sendStatusJSON ok200 json
 
+pegarNome :: Maybe (Entity Usuario) -> Text
+pegarNome Nothing = pack "Faustão"
+pegarNome (Just (Entity _ u)) = usuarioNome u
