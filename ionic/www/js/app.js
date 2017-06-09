@@ -33,7 +33,6 @@ angular.module('bfgs', ['ionic', 'bfgs.controllers', 'bfgs.services'])
 
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
-
         .state('login', {
         url: '/login',
         templateUrl: 'templates/login.html',

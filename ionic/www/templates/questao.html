@@ -1,21 +1,32 @@
-<ion-view>
-  <ion-nav-title>
-    {{local.nome}}
-  </ion-nav-title>
-  <ion-content class="calm-bg has-header">
-
-  <!--Card-->
- <!-- <div  ng-repeat="" ui-sref="" class=""> para o rand de categoria-->
-<div class="card">
-  <div class="item item-text-wrap">
-    This is a basic Card which contains an item that has wrapping text.
-  </div>
-</div>
-<div class="padding">
-<button class="button button-block button-light buttons">
-  resposta X
-</button>
-</div>
+<ion-view hide-nav-bar="true">
+    <ion-content has-header="true" has-tabs="true" start-y="55" has-bouncing="false" class="calm-bg">
+        <div ng-class="'bar-'+pergunta.categoria.toLowerCase()" class="bar bar-header bar-stable">
+            <h1 class="title">{{pergunta.categoria || "Carregando..."}}</h1>
+        </div>
+        <div ng-show="pergunta.enunciado" class="questao">
+            <div ng-class="animation.state" class="card padding">
+                <p>{{pergunta.enunciado}}</p><h6>{{pergunta.pontos}} pontos <span class="assertive">{{partida.streak >= 3 ?' + 25%':''}}</span></h6>
+            </div>
+            <div ng-class="animation.state" class="wrapper">
+                <div ng-repeat="a in pergunta.alternativas" class="padding">
+                    <button ng-class="a.className" ng-click="escolher($index)" class="button button-block button-light buttons">{{a.texto}}</button>
+                </div>
+            </div>
+            <div ng-class="animation.state" id="proxima" class="padding">
+                <button ng-disabled="!pergunta.respondeu && partida.pulos < 1" ng-click="continuar()" class="button button-block button-{{pergunta.categoria.toLowerCase()}}">{{pergunta.respondeu?'Continuar':'Pular'}}</button>
+            </div>
+            <h3>Pontos: {{partida.pontuacao}}</h3>
+            <h3>Seguidas: {{partida.streak}}</h3>
+            <h3>Pulos: {{partida.pulos}}</h3>
+            <h3>Tá pegando fogo bicho: {{partida.streak >= 3}}</h3>
+        </div>
+        <!--<div class="bar bar-subheader" ng-class="'bar-'+pergunta.categoria.toLowerCase()"></div>
+        <div ng-if="pergunta.enunciado">
+            <div class="card">
+                <div class="item item-text-wrap">
+                    {{pergunta.enunciado}}
+                </div>
+            </div>
+        </div> -->
     </ion-content>
-  </ion-view>
-
+</ion-view>

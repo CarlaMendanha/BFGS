@@ -18,8 +18,11 @@ $dark:                            #444 !default;
 .total-center {
   display: flex;
   align-items: center;
-  justify-content: center;
-  vertical-align: middle; }
+  justify-content: center; }
+
+.full-screen {
+  width: 100vw;
+  height: 100vh; }
 
 /*!
   Ionicons, v2.0.1
@@ -5637,7 +5640,7 @@ ion-tabs.tabs-striped.tabs-color-active-dark .tab-item.tab-item-active, ion-tabs
     width: 250px;
     max-width: 100%;
     max-height: 90%;
-    border-radius: 0px;
+    border-radius: 0.4em;
     background-color: rgba(255, 255, 255, 0.9);
     display: -webkit-box;
     display: -webkit-flex;
@@ -9620,7 +9623,7 @@ a.button {
  * --------------------------------------------------
  */
 .rounded {
-  border-radius: 4px; }
+  border-radius: 0.4em; }
 
 /**
  * Utility Colors
@@ -9954,6 +9957,162 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.bar.bar-variedades {
+  border-color: #d12b43;
+  background-color: #dc5367;
+  background-image: linear-gradient(0deg, #d12b43, #d12b43 50%, transparent 50%);
+  color: #fff; }
+  .bar.bar-variedades .title {
+    color: #fff; }
+
+.bar.bar-esportes {
+  border-color: #de804e;
+  background-color: #e69f79;
+  background-image: linear-gradient(0deg, #de804e, #de804e 50%, transparent 50%);
+  color: #fff; }
+  .bar.bar-esportes .title {
+    color: #fff; }
+
+.bar.bar-geografia {
+  border-color: #4ea9de;
+  background-color: #79bee6;
+  background-image: linear-gradient(0deg, #4ea9de, #4ea9de 50%, transparent 50%);
+  color: #fff; }
+  .bar.bar-geografia .title {
+    color: #fff; }
+
+.bar.bar-historia {
+  border-color: #e3c24f;
+  background-color: #ead17b;
+  background-image: linear-gradient(0deg, #e3c24f, #e3c24f 50%, transparent 50%);
+  color: #fff; }
+  .bar.bar-historia .title {
+    color: #fff; }
+
+.bar.bar-ciencia {
+  border-color: #53c99a;
+  background-color: #7ad5b1;
+  background-image: linear-gradient(0deg, #53c99a, #53c99a 50%, transparent 50%);
+  color: #fff; }
+  .bar.bar-ciencia .title {
+    color: #fff; }
+
+.bar.bar-cotidiano {
+  border-color: #a153c9;
+  background-color: #b67ad5;
+  background-image: linear-gradient(0deg, #a153c9, #a153c9 50%, transparent 50%);
+  color: #fff; }
+  .bar.bar-cotidiano .title {
+    color: #fff; }
+
+.button.button-variedades {
+  border-color: #dc5367;
+  background-color: #dc5367;
+  color: #fff;
+  box-shadow: 0 0.4em #d12b43;
+  border-radius: 0.4em;
+  margin-bottom: 0.4em;
+  text-transform: uppercase;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease; }
+  .button.button-variedades:hover {
+    color: #fff;
+    text-decoration: none; }
+  .button.button-variedades.active, .button.button-variedades.activated {
+    background-color: #d12b43;
+    box-shadow: 0 0 #d12b43;
+    transform: translateY(0.5em); }
+
+.button.button-esportes {
+  border-color: #e69f79;
+  background-color: #e69f79;
+  color: #fff;
+  box-shadow: 0 0.4em #de804e;
+  border-radius: 0.4em;
+  margin-bottom: 0.4em;
+  text-transform: uppercase;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease; }
+  .button.button-esportes:hover {
+    color: #fff;
+    text-decoration: none; }
+  .button.button-esportes.active, .button.button-esportes.activated {
+    background-color: #de804e;
+    box-shadow: 0 0 #de804e;
+    transform: translateY(0.5em); }
+
+.button.button-geografia {
+  border-color: #79bee6;
+  background-color: #79bee6;
+  color: #fff;
+  box-shadow: 0 0.4em #4ea9de;
+  border-radius: 0.4em;
+  margin-bottom: 0.4em;
+  text-transform: uppercase;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease; }
+  .button.button-geografia:hover {
+    color: #fff;
+    text-decoration: none; }
+  .button.button-geografia.active, .button.button-geografia.activated {
+    background-color: #4ea9de;
+    box-shadow: 0 0 #4ea9de;
+    transform: translateY(0.5em); }
+
+.button.button-historia {
+  border-color: #ead17b;
+  background-color: #ead17b;
+  color: #fff;
+  box-shadow: 0 0.4em #e3c24f;
+  border-radius: 0.4em;
+  margin-bottom: 0.4em;
+  text-transform: uppercase;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease; }
+  .button.button-historia:hover {
+    color: #fff;
+    text-decoration: none; }
+  .button.button-historia.active, .button.button-historia.activated {
+    background-color: #e3c24f;
+    box-shadow: 0 0 #e3c24f;
+    transform: translateY(0.5em); }
+
+.button.button-ciencia {
+  border-color: #7ad5b1;
+  background-color: #7ad5b1;
+  color: #fff;
+  box-shadow: 0 0.4em #53c99a;
+  border-radius: 0.4em;
+  margin-bottom: 0.4em;
+  text-transform: uppercase;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease; }
+  .button.button-ciencia:hover {
+    color: #fff;
+    text-decoration: none; }
+  .button.button-ciencia.active, .button.button-ciencia.activated {
+    background-color: #53c99a;
+    box-shadow: 0 0 #53c99a;
+    transform: translateY(0.5em); }
+
+.button.button-cotidiano {
+  border-color: #b67ad5;
+  background-color: #b67ad5;
+  color: #fff;
+  box-shadow: 0 0.4em #a153c9;
+  border-radius: 0.4em;
+  margin-bottom: 0.4em;
+  text-transform: uppercase;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease; }
+  .button.button-cotidiano:hover {
+    color: #fff;
+    text-decoration: none; }
+  .button.button-cotidiano.active, .button.button-cotidiano.activated {
+    background-color: #a153c9;
+    box-shadow: 0 0 #a153c9;
+    transform: translateY(0.5em); }
+
 .loginCadastro .cad {
   color: #fff !important; }
 
@@ -9964,8 +10123,7 @@ a.button {
   display: block;
   display: flex;
   align-items: center;
-  justify-content: center;
-  vertical-align: middle; }
+  justify-content: center; }
   .loginCadastro .logo img {
     width: 100vw;
     max-height: 25em; }
@@ -9984,13 +10142,53 @@ a.button {
       color: #fff;
       text-indent: 0; }
 
-.fausto h1 {
-  color: #f9c700;
-  font-size: 3em; }
+.questao {
+  padding-top: 55px; }
+  .questao .card {
+    border-radius: .5em;
+    font-size: 1.5em;
+    padding: 2em 1em;
+    color: #444;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease; }
+    .questao .card.in {
+      transform: translateX(-150%) !important;
+      opacity: 0 !important; }
+    .questao .card.out {
+      transform: translateX(150%) !important;
+      opacity: 0 !important; }
+  .questao .wrapper div.padding {
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease; }
+    .questao .wrapper div.padding:nth-child(1) {
+      transition-delay: 0.1s; }
+    .questao .wrapper div.padding:nth-child(2) {
+      transition-delay: 0.2s; }
+    .questao .wrapper div.padding:nth-child(3) {
+      transition-delay: 0.3s; }
+    .questao .wrapper div.padding:nth-child(4) {
+      transition-delay: 0.4s; }
+    .questao .wrapper div.padding:nth-child(5) {
+      transition-delay: 0.5s; }
+  .questao .wrapper.in div.padding {
+    transform: translateX(-150%) !important; }
+  .questao .wrapper.out div.padding {
+    transform: translateX(150%) !important; }
 
-.fausto h2 {
-  color: #f9c700;
-  font-size: 2em; }
+#proxima {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease; }
+  #proxima.in, #proxima.out {
+    opacity: 0 !important; }
+
+img.fausto {
+  max-height: 45%; }
+
+#fogo {
+  position: absolute;
+  top: 110px; }
+  #fogo img {
+    width: 100vw; }
 
 * {
   font-family: "Roboto", "Helvetica Neue", "Segoe UI", sans-serif; }

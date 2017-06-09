@@ -33,14 +33,15 @@ $cotidiano:                       #b67ad5;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
+$popup-border-radius: 0.4em;
+$border-radius-base: 0.4em;
 
 // Include all of Ionic
 @import "helper"; 
 @import "../www/lib/ionic/scss/ionic";
+@import "categorias";
 @import "login";
-@import "fausto";
-
-
+@import "questoes";
 
 * {
     font-family:  "Roboto", "Helvetica Neue", "Segoe UI", sans-serif;

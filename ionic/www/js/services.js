@@ -4,7 +4,7 @@ angular.module('bfgs.services', [])
     this.cadastrar = function(user){
         var that = this;
         $ionicLoading.show();
-        $http.post ('https://haskcamaro-romefeller.c9users.io/cadastro',user)
+        return $http.post ('https://haskcamaro-romefeller.c9users.io/cadastro',user)
             .then(function(response){
                 if(response){
                     console.log(response.data)
@@ -23,7 +23,7 @@ angular.module('bfgs.services', [])
     this.login = function(user){
         var that = this;
         $ionicLoading.show();
-        $http.get('https://haskcamaro-romefeller.c9users.io/login/'+user.email+'/'+user.password)
+        return $http.get('https://haskcamaro-romefeller.c9users.io/login/'+user.email+'/'+user.password)
             .then(function(response){
                 if(response){
                     console.log(response.data)
@@ -47,5 +47,22 @@ angular.module('bfgs.services', [])
             id: localStorage.getItem('id') || 0,
             nome: localStorage.getItem('nome') || ''
         }
+    }
+})
+
+.service('Pergunta', function($http){
+    this.aleatoria = function(){
+        var that = this;
+        return $http.get('https://haskcamaro-romefeller.c9users.io/aleatoria').then(function(r){
+            if(r){
+                return r.data;
+            }
+        })
+    }
+})
+
+.service('Partida', function($http, Usuario){
+    this.salvar = function(){
+        console.log(Usuario.get());
     }
 })

@@ -3,11 +3,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    vertical-align: middle;
 }
 
+@mixin full-screen{
+    width: 100vw;
+    height: 100vh;
+}
 
 .total-center{
 	@include total-center;
+}
+
+.full-screen{
+    @include full-screen;
 }
 

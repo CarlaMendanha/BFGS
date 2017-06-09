@@ -1,0 +1,59 @@
+.questao{
+    padding-top: 55px;
+    .card{
+        border-radius: .5em;
+        font-size: 1.5em;
+        padding: 2em 1em;
+        color: $dark;
+        @include transition(all 1s ease);
+        
+        &.in{
+            transform: translateX(-150%) !important;
+            opacity: 0 !important;
+        }
+        &.out{
+            transform: translateX(150%) !important;
+            opacity: 0 !important;
+        }
+    }
+    .wrapper{
+        div.padding{
+            @include transition(all 1s ease);
+            @for $i from 1 through 5 {
+                &:nth-child(#{$i}){
+                    transition-delay: .1s * $i;
+                }
+            }
+        }
+        
+        &.in{
+           div.padding{
+                transform: translateX(-150%) !important;
+           }
+        }
+        &.out{
+           div.padding{
+                transform: translateX(150%) !important;
+           }
+        }
+    }
+}
+#proxima{
+    @include transition(all 1s ease);
+    &.in, &.out{
+        opacity: 0 !important;
+    }
+}
+
+img.fausto{
+    max-height: 45%;
+}
+
+#fogo{
+    position: absolute;
+    top: 110px;
+    //mix-blend-mode: hard-light;
+    img{
+        width: 100vw;
+    }
+}
