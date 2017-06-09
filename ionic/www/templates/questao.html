@@ -15,18 +15,14 @@
             <div ng-class="animation.state" id="proxima" class="padding">
                 <button ng-disabled="!pergunta.respondeu && partida.pulos < 1" ng-click="continuar()" class="button button-block button-{{pergunta.categoria.toLowerCase()}}">{{pergunta.respondeu?'Continuar':'Pular'}}</button>
             </div>
+            <!-- DEBUG
             <h3>Pontos: {{partida.pontuacao}}</h3>
             <h3>Seguidas: {{partida.streak}}</h3>
             <h3>Pulos: {{partida.pulos}}</h3>
-            <h3>Tá pegando fogo bicho: {{partida.streak >= 3}}</h3>
+            <h3>Tá pegando fogo bicho: {{partida.streak >= 3}}</h3> -->
         </div>
-        <!--<div class="bar bar-subheader" ng-class="'bar-'+pergunta.categoria.toLowerCase()"></div>
-        <div ng-if="pergunta.enunciado">
-            <div class="card">
-                <div class="item item-text-wrap">
-                    {{pergunta.enunciado}}
-                </div>
-            </div>
-        </div> -->
+        <div ng-class="{show : pergunta.respondeu}" class="faustao-ninja">
+            <img src="img/fausto.svg"></img>
+        </div>
     </ion-content>
 </ion-view>

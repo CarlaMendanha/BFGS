@@ -51,9 +51,35 @@ img.fausto{
 
 #fogo{
     position: absolute;
-    top: 110px;
+    top: 20px;
     //mix-blend-mode: hard-light;
     img{
         width: 100vw;
+    }
+}
+
+.faustao-ninja{
+    position: absolute;
+    top: 0;
+    transform: rotate(90deg) translateY(100%);
+    width: 100%;
+    &.show{
+        animation-fill-mode: forwards;
+        animation: faustao-aparecendo 1.5s ease;
+    }
+}
+
+@keyframes faustao-aparecendo{
+    0%{
+        transform: rotate(90deg) translateY(100%);
+    }
+    25%{
+        transform: rotate(90deg) translateY(40%);
+    }
+    75%{
+        transform: rotate(90deg) translateY(40%);
+    }
+    100%{
+        transform: rotate(90deg) translateY(100%);
     }
 }

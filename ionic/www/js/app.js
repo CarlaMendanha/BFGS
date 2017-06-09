@@ -29,15 +29,24 @@ angular.module('bfgs', ['ionic', 'bfgs.controllers', 'bfgs.services'])
             StatusBar.styleDefault();
         }
     });
+
+    (function() {
+        Date.prototype.toSQL = Date_toSQL;
+
+        function Date_toSQL() {
+            this.setHours(this.getHours()-3);
+            return this.toISOString().substring(0, 10);//.replace('T', ' ')
+        }
+    })();
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('login', {
-        url: '/login',
-        templateUrl: 'templates/login.html',
-        controller: 'loginCtrl'
-    })
+            url: '/login',
+            templateUrl: 'templates/login.html',
+            controller: 'loginCtrl'
+        })
 
 
     .state('cadastro', {
@@ -52,22 +61,11 @@ angular.module('bfgs', ['ionic', 'bfgs.controllers', 'bfgs.services'])
         controller: 'questaoCtrl',
         cache: false
     })
-    
+
     .state('regras', {
         url: '/regras',
         templateUrl: 'templates/regras.html',
     })
-
-
-    /* .state('errou', {
-    url: '/errou',
-    templateUrl: 'templates/errou.html',
-  })
-  
-      .state('acertou', {
-    url: '/acertou',
-    templateUrl: 'templates/acertou.html',
-  })*/
 
 
     $urlRouterProvider.otherwise('/login');
