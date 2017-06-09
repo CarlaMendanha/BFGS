@@ -1,6 +1,6 @@
 angular.module('bfgs.controllers', [])
 
-.controller('loginCtrl', function($scope, $ionicPopup, Usuario) {
+.controller('loginCtrl', function($scope, $ionicPopup,Usuario) {
     $scope.loginData = {
         email: '',
         password: ''
@@ -47,13 +47,19 @@ angular.module('bfgs.controllers', [])
 
 })
 
-.controller('questaoCtrl', function($rootScope, $scope, $state, $timeout, $ionicModal, $ionicPopup, Pergunta, Partida) {
+.controller('menuCtrl', function(Usuario){
+    Usuario.temQueEstarLogado();
+})
+
+.controller('questaoCtrl', function($rootScope, $scope, $state, $timeout, $ionicModal, $ionicPopup, Pergunta, Partida, Usuario) {
+    Usuario.temQueEstarLogado();
     //$rootScope.sounds.song.play(); //chato bagarai
     $scope.pergunta = {};
     $scope.animation = {
         state: 'in'
     }
     //Inicializa partida, se ela nao existe
+    console.info($rootScope.partida)
     if (!$rootScope.partida) {
         $rootScope.partida = {
             pulos: 3,
@@ -96,6 +102,12 @@ angular.module('bfgs.controllers', [])
                 $rootScope.partida.pontuacao += $scope.pergunta.pontos;
             }
             $rootScope.partida.streak++;
+            if ($rootScope.partida.streak == 3) { //avisa o jogador que ele TA PEGANDO FOGO BICHO
+                $timeout(function(){
+                    $scope.modal.show();
+                    $rootScope.sounds.fogo.play();
+                }, 200);
+            }
         }
         else { //ERROU!
             a.className = 'button-assertive';
@@ -103,12 +115,6 @@ angular.module('bfgs.controllers', [])
             certa.className = 'button-balanced';
             $rootScope.sounds.errou.play();
             $rootScope.partida.finalizada = true;
-        }
-        if ($rootScope.partida.streak == 3) { //avisa o jogador que ele TA PEGANDO FOGO BICHO
-            $timeout(function(){
-                $scope.modal.show();
-                $rootScope.sounds.fogo.play();
-            }, 200);
         }
         $scope.pergunta.respondeu = true;
     }
@@ -141,4 +147,13 @@ angular.module('bfgs.controllers', [])
             $state.reload(); //recarrega a pagina, pra buscar uma nova questao sem zoar as animacoes
         }, 1000);
     }
+})
+
+.controller('placarCtrl', function($scope, $rootScope, Partida, Usuario){
+    Usuario.temQueEstarLogado();
+    $scope.placar = [];
+    Partida.placar().then(function(placar){
+        $scope.placar = placar;
+        $rootScope.sounds.placar.play();
+    });
 })

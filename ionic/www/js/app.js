@@ -34,8 +34,8 @@ angular.module('bfgs', ['ionic', 'bfgs.controllers', 'bfgs.services'])
         Date.prototype.toSQL = Date_toSQL;
 
         function Date_toSQL() {
-            this.setHours(this.getHours()-3);
-            return this.toISOString().substring(0, 10);//.replace('T', ' ')
+            this.setHours(this.getHours() - 3);
+            return this.toISOString().substring(0, 10); //.replace('T', ' ')
         }
     })();
 })
@@ -64,7 +64,45 @@ angular.module('bfgs', ['ionic', 'bfgs.controllers', 'bfgs.services'])
 
     .state('regras', {
         url: '/regras',
+        cache: false,
         templateUrl: 'templates/regras.html',
+    })
+
+    .state('menu', {
+        url: '/menu',
+        cache: false,
+        controller: 'menuCtrl',
+        templateUrl: 'templates/menu.html',
+    })
+
+    .state('placar', {
+        url: '/placar',
+        cache: false,
+        templateUrl: 'templates/placar.html',
+        controller: 'placarCtrl'
+    })
+
+    .state('logout', {
+        url: '/logout',
+        cache: false,
+        resolve: {
+            confirma: function($state, $ionicPopup, Usuario) {
+                return $ionicPopup.confirm({
+                    title: 'Tem certeza que deseja sair?',
+                    okText: 'Sair',
+                    cancelText: 'Ficar',
+                    cancelType: 'button-positive',
+                    okType: 'button-assertive'
+                }).then(function(querSair) {
+                    if (querSair) {
+                        Usuario.logout();
+                        $state.go('login');
+                    }else{
+                        $state.go('menu');
+                    }
+                })
+            }
+        }
     })
 
 

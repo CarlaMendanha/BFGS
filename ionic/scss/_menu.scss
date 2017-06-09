@@ -1,0 +1,39 @@
+#menu {
+    height: calc(100vh - 44px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    #menu-buttons {
+        justify-content: space-around;
+    }
+    #botao-principal {
+        justify-content: space-around;
+    }
+}
+
+.button-round {
+    border-radius: 50%;
+    width: 20vw;
+    height: 20vw;
+    background: $light;
+    box-shadow: 0 0.5em 0 darken($light, 15%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.big {
+        $cor-borda: darken($calm, 10%);
+        $tamanho-borda: 1.5em;
+        width: 70vw;
+        height: 70vw;
+        border: $tamanho-borda solid $cor-borda;
+        box-shadow: 0 0.5em 0 darken($cor-borda, 15%);
+        &.activated{
+            box-shadow: 0 0 0 darken($cor-borda, 15%);
+            border: $tamanho-borda solid darken($cor-borda, 15%);
+        }
+    }
+    i{
+        font-size: 13vw;
+        color: $royal;
+    }
+}

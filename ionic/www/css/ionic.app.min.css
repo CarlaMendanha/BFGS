@@ -10209,6 +10209,37 @@ img.fausto {
   100% {
     transform: rotate(90deg) translateY(100%); } }
 
+#menu {
+  height: calc(100vh - 44px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; }
+  #menu #menu-buttons {
+    justify-content: space-around; }
+  #menu #botao-principal {
+    justify-content: space-around; }
+
+.button-round {
+  border-radius: 50%;
+  width: 20vw;
+  height: 20vw;
+  background: #fff;
+  box-shadow: 0 0.5em 0 #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .button-round.big {
+    width: 70vw;
+    height: 70vw;
+    border: 1.5em solid #cbc5d6;
+    box-shadow: 0 0.5em 0 #a499b6; }
+    .button-round.big.activated {
+      box-shadow: 0 0 0 #a499b6;
+      border: 1.5em solid #a499b6; }
+  .button-round i {
+    font-size: 13vw;
+    color: #9282ae; }
+
 * {
   font-family: "Roboto", "Helvetica Neue", "Segoe UI", sans-serif; }
 
