@@ -5,48 +5,62 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('bfgs', ['ionic', 'bfgs.controllers', 'bfgs.services'])
 
-.run(function($ionicPlatform, $http) {
-  $http.defaults.headers.post["Content-Type"] = "text/plain";
-  $ionicPlatform.ready(function() {
-    if(window.cordova && window.cordova.plugins.Keyboard) {
-      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-      // for form inputs)
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+.run(function($ionicPlatform, $http, $rootScope) {
+    $rootScope.sounds = {
+        errou: new Audio('sound/errou.mp3'),
+        fogo: new Audio('sound/fogo.mp3'),
+        placar: new Audio('sound/placar.mp3'),
+        song: new Audio('sound/song.ogg')
+    }
+    $rootScope.sounds.song.loop = true;
+    $http.defaults.headers.post["Content-Type"] = "text/plain";
+    $ionicPlatform.ready(function() {
+        if (window.cordova && window.cordova.plugins.Keyboard) {
+            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+            // for form inputs)
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
 
-      // Don't remove this line unless you know what you are doing. It stops the viewport
-      // from snapping when text inputs are focused. Ionic handles this internally for
-      // a much nicer keyboard experience.
-      cordova.plugins.Keyboard.disableScroll(true);
-    }
-    if(window.StatusBar) {
-      StatusBar.styleDefault();
-    }
-  });
+            // Don't remove this line unless you know what you are doing. It stops the viewport
+            // from snapping when text inputs are focused. Ionic handles this internally for
+            // a much nicer keyboard experience.
+            cordova.plugins.Keyboard.disableScroll(true);
+        }
+        if (window.StatusBar) {
+            StatusBar.styleDefault();
+        }
+    });
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
-        $stateProvider
+    $stateProvider
 
-  .state('login', {
-    url: '/login',
-    templateUrl: 'templates/login.html',
-    controller: 'loginCtrl'
-  })
+        .state('login', {
+        url: '/login',
+        templateUrl: 'templates/login.html',
+        controller: 'loginCtrl'
+    })
 
 
-  .state('cadastro', {
-    url: '/cadastro',
-    templateUrl: 'templates/cadastro.html',
-    controller: 'cadastroCtrl'
-  })
-  
+    .state('cadastro', {
+        url: '/cadastro',
+        templateUrl: 'templates/cadastro.html',
+        controller: 'cadastroCtrl'
+    })
+
     .state('questao', {
-    url: '/questao',
-    templateUrl: 'templates/questao.html',
-    controller: 'questaoCtrl'
-  })
-  
-    .state('errou', {
+        url: '/questao',
+        templateUrl: 'templates/questao.html',
+        controller: 'questaoCtrl',
+        cache: false
+    })
+    
+    .state('regras', {
+        url: '/regras',
+        templateUrl: 'templates/regras.html',
+    })
+
+
+    /* .state('errou', {
     url: '/errou',
     templateUrl: 'templates/errou.html',
   })
@@ -54,8 +68,8 @@ angular.module('bfgs', ['ionic', 'bfgs.controllers', 'bfgs.services'])
       .state('acertou', {
     url: '/acertou',
     templateUrl: 'templates/acertou.html',
-  })
-  
-  
-        $urlRouterProvider.otherwise('/login');
-    });
+  })*/
+
+
+    $urlRouterProvider.otherwise('/login');
+});
