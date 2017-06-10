@@ -1,49 +1,54 @@
 #menu {
-    height: calc(100vh - 44px);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    #menu-buttons {
-        justify-content: space-around;
-    }
-    #botao-principal {
-        justify-content: space-around;
+    min-height: calc(100vh - 44px);
+    @include display-flex;
+    @include flex-direction(column);
+    @include justify-content(space-around);
+    #menu-buttons, #botao-principal {
+        @include justify-content(space-around);
     }
 }
 
 .button-round {
-    border-radius: 50%;
+    @include border-radius(50%);
     width: 20vw;
     height: 20vw;
     background: $light;
     box-shadow: 0 0.5em 0 darken($light, 15%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: button-round-in .5s ease;
+    @include display-flex;
+    @include justify-content(center);
+    @include align-items(center);
+    @include animation(button-round-in .5s ease);
+    max-height: 120px;
+    max-width: 120px;
+    margin-top: 1em;
     &.big {
         $cor-borda: darken($calm, 10%);
         $tamanho-borda: 1.5em;
         width: 70vw;
         height: 70vw;
+        max-height: 500px;
+        max-width: 500px;
         border: $tamanho-borda solid $cor-borda;
-        box-shadow: 0 0.5em 0 darken($cor-borda, 15%);
-        &.activated{
-            box-shadow: 0 0 0 darken($cor-borda, 15%);
+        @include box-shadow(0 0.5em 0 darken($cor-borda, 15%));
+        &.activated {
+            @include box-shadow(0 0 0 darken($cor-borda, 15%));
             border: $tamanho-borda solid darken($cor-borda, 15%);
         }
     }
-    i{
+    i {
         font-size: 13vw;
+        @media (min-width: 768px) {
+            font-size: 500%;
+        }
         color: $royal;
     }
 }
 
-@keyframes button-round-in{
-    from{
-        transform: rotate(-180deg) scale(0);
+@keyframes button-round-in {
+    from {
+        @include transform(rotate(-180deg) scale(0));
     }
-    to{
-        transform: rotate(0) scale(1);
+    to {
+        @include transform(rotate(0) scale(1));
     }
 }

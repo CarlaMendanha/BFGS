@@ -37,8 +37,8 @@ $popup-border-radius: 0.4em;
 $border-radius-base: 0.4em;
 
 // Include all of Ionic
-@import "helper"; 
 @import "../www/lib/ionic/scss/ionic";
+@import "helper"; 
 @import "categorias";
 @import "login";
 @import "questoes";
