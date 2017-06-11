@@ -7,9 +7,6 @@
     #botao-principal {
         @include justify-content(space-around);
     }
-    h1 {
-        color: $roxoicon;
-    }
 }
 
 @mixin botao-faustao($escurescer) {

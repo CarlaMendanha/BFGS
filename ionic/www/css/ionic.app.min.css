@@ -9970,6 +9970,14 @@ a.button {
   width: 100vw;
   height: 100vh; }
 
+@font-face {
+  font-family: "din";
+  src: url("DIN-BLACK_0.TTF"); }
+
+.font-din {
+  font-family: "din";
+  color: #b6acc9; }
+
 .bar.bar-variedades {
   border-color: #d12b43;
   background-color: #dc5367;
@@ -10278,8 +10286,6 @@ img.fausto {
     -webkit-justify-content: space-around;
     -moz-justify-content: space-around;
     justify-content: space-around; }
-  #menu h1 {
-    color: #b6acc9; }
 
 .button-round {
   -webkit-border-radius: 50%;
@@ -10337,6 +10343,17 @@ img.fausto {
   to {
     -webkit-transform: rotate(0) scale(1);
     transform: rotate(0) scale(1); } }
+
+ol.regras {
+  list-style: decimal inside none; }
+  ol.regras li {
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-bottom: #e6e3eb thin solid; }
+    ol.regras li:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none; }
 
 * {
   font-family: "Roboto", "Helvetica Neue", "Segoe UI", sans-serif; }
