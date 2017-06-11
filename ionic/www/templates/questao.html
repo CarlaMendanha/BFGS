@@ -5,15 +5,15 @@
         </div>
         <div ng-show="pergunta.enunciado" class="questao">
             <div ng-class="animation.state" class="card padding">
-                <p>{{pergunta.enunciado}}</p><h6>{{pergunta.pontos}} pontos <span class="assertive">{{partida.streak >= 4 ?' + 25%':''}}</span></h6>
+                <p class="stable">{{pergunta.enunciado}}</p><h6 class="positive">{{pergunta.pontos}} pontos <span class="assertive">{{partida.streak >= 4 ?' + 25%':''}}</span></h6>
             </div>
             <div ng-class="animation.state" class="wrapper">
                 <div ng-repeat="a in pergunta.alternativas" class="padding">
-                    <button ng-class="a.className" ng-click="escolher($index)" class="button button-block button-light buttons">{{a.texto}}</button>
+                    <button ng-class="a.className" ng-click="escolher($index)" class="stable button button-block button-light buttons">{{a.texto}}</button>
                 </div>
             </div>
             <div ng-class="animation.state" id="proxima" class="padding">
-                <button ng-disabled="!pergunta.respondeu && partida.pulos < 1" ng-click="continuar()" class="button button-block button-{{pergunta.categoria.toLowerCase()}}">{{pergunta.respondeu?'Continuar':('Pular ('+partida.pulos+')')}}</button>
+                <button ng-disabled="!pergunta.respondeu && partida.pulos < 1" ng-click="continuar()" class="button button-block button-{{pergunta.categoria.toLowerCase()}} btn700">{{pergunta.respondeu?'Continuar':('Pular ('+partida.pulos+')')}}</button>
             </div>
             <!-- DEBUG
             <h3>Pontos: {{partida.pontuacao}}</h3>

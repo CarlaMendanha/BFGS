@@ -1,6 +1,7 @@
 ol.regras{
     list-style: decimal inside none;
     li{
+        color: $stable;
         margin-bottom: 1em;
         padding-bottom: 1em;
         border-bottom: $calm thin solid;
