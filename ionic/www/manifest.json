@@ -1,11 +1,15 @@
 {
-  "name": "My Ionic App",
-  "short_name": "My Ionic App",
-  "start_url": "index.html",
-  "display": "standalone",
-  "icons": [{
-    "src": "icon.png",
-    "sizes": "512x512",
-    "type": "image/png"
-  }]
+	"name": "Big Fausto Game Show",
+	"short_name": "Big Fausto Game Show",
+	"start_url": "index.html",
+	"display": "standalone",
+	"background_color": "#705b95",
+	"theme_color": "#705b95",
+	"description": "O app de perguntas do Faustão, bicho!",
+	"lang": "pt-BR",
+	"orientation": "portrait",
+	"icons": [{
+		"src": "img/cabecaFausto.svg",
+		"sizes": "48x48 72x72 96x96 128x128 256x256 512x512"
+	}]
 }
