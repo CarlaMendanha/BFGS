@@ -96,13 +96,13 @@ angular.module('bfgs.controllers', [])
         var a = $scope.pergunta.alternativas[index]; //acha a alternativa marcada
         if (a.certa) { //se ela ta certa, segue em frente
             a.className = 'button-balanced';
-            if($rootScope.partida.streak >= 3){ //pegando fogo?
+            if($rootScope.partida.streak >= 4){ //pegando fogo?
                 $rootScope.partida.pontuacao += $scope.pergunta.pontos * 1.25;
             }else{
                 $rootScope.partida.pontuacao += $scope.pergunta.pontos;
             }
             $rootScope.partida.streak++;
-            if ($rootScope.partida.streak == 3) { //avisa o jogador que ele TA PEGANDO FOGO BICHO
+            if ($rootScope.partida.streak == 4) { //avisa o jogador que ele TA PEGANDO FOGO BICHO
                 $timeout(function(){
                     $scope.modal.show();
                     $rootScope.sounds.fogo.play();

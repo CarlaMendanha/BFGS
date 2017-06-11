@@ -5,7 +5,7 @@
         </div>
         <div ng-show="pergunta.enunciado" class="questao">
             <div ng-class="animation.state" class="card padding">
-                <p>{{pergunta.enunciado}}</p><h6>{{pergunta.pontos}} pontos <span class="assertive">{{partida.streak >= 3 ?' + 25%':''}}</span></h6>
+                <p>{{pergunta.enunciado}}</p><h6>{{pergunta.pontos}} pontos <span class="assertive">{{partida.streak >= 4 ?' + 25%':''}}</span></h6>
             </div>
             <div ng-class="animation.state" class="wrapper">
                 <div ng-repeat="a in pergunta.alternativas" class="padding">
@@ -19,7 +19,7 @@
             <h3>Pontos: {{partida.pontuacao}}</h3>
             <h3>Seguidas: {{partida.streak}}</h3>
             <h3>Pulos: {{partida.pulos}}</h3>
-            <h3>Tá pegando fogo bicho: {{partida.streak >= 3}}</h3> -->
+            <h3>Tá pegando fogo bicho: {{partida.streak >= 4}}</h3> -->
         </div>
         <div ng-class="{show : pergunta.respondeu}" class="faustao-ninja">
             <img src="img/fausto.svg"></img>
