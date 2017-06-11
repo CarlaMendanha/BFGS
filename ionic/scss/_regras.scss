@@ -1,0 +1,13 @@
+ol.regras{
+    list-style: decimal inside none;
+    li{
+        margin-bottom: 1em;
+        padding-bottom: 1em;
+        border-bottom: $calm thin solid;
+        &:last-child{
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+    }
+}

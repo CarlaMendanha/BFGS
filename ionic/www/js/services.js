@@ -38,7 +38,7 @@ angular.module('bfgs.services', [])
             }).catch(function() {
                 $ionicPopup.alert({
                     title: 'ERROU',
-                    template: 'O loco meu, seu login ou sua senha estão errados!'
+                    template: 'Ô loco meu, seu login ou sua senha estão errados!'
                 })
             }).finally(function() {
                 $ionicLoading.hide();
