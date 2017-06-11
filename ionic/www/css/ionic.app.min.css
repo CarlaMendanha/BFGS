@@ -9970,12 +9970,8 @@ a.button {
   width: 100vw;
   height: 100vh; }
 
-@font-face {
-  font-family: "din";
-  src: url("DIN-BLACK_0.TTF"); }
-
-.font-din {
-  font-family: "din";
+.font-diferente {
+  font-family: 'Archivo Black', sans-serif;
   color: #b6acc9; }
 
 .bar.bar-variedades {

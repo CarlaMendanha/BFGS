@@ -18,13 +18,7 @@
     @include full-screen;
 }
 
-
-@font-face {
-     font-family: "din";
-     src: url('DIN-BLACK_0.TTF');
-}
-
-.font-din{
-    font-family: "din";  
+.font-diferente{
+    font-family: 'Archivo Black', sans-serif; 
     color: $roxoicon;
 }
