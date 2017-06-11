@@ -57,6 +57,7 @@ angular.module('bfgs.controllers', [])
 
 .controller('questaoCtrl', function($rootScope, $scope, $state, $timeout, $ionicModal, $ionicPopup, Pergunta, Partida, Usuario) {
     Usuario.temQueEstarLogado();
+ 
     //$rootScope.sounds.song.play(); //chato bagarai
     $scope.pergunta = {};
     $scope.animation = {

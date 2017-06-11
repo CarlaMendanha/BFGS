@@ -1,4 +1,10 @@
 <ion-view hide-nav-bar="true">
+    <ion-toolbar>
+          <div class="col-right">
+             <strong class="{{linha.pontuacao}} Pontos"></strong>
+          </div>
+    </ion-toolbar>
+    
     <ion-content has-header="true" has-tabs="true" start-y="55" has-bouncing="false" class="calm-bg">
         <div ng-class="'bar-'+pergunta.categoria.toLowerCase()" class="bar bar-header bar-stable">
             <h1 class="title">{{pergunta.categoria || "Carregando..."}}</h1>
