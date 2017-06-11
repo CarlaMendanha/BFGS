@@ -9,7 +9,8 @@ angular.module('bfgs.controllers', [])
         var user = $scope.loginData;
         if (!user.email || !user.password) {
             $ionicPopup.alert({
-                title: 'Preencha todos os campos!'
+                title: 'Orra, meu!',
+                template: 'Tem campo em branco ou inválido aí!'
             });
             return;
         }
@@ -27,7 +28,8 @@ angular.module('bfgs.controllers', [])
     $scope.doCadastro = function() {
         if ($scope.loginData.password !== $scope.loginData.passwordConfirmation) {
             $ionicPopup.alert({
-                title: 'Suas senhas são diferentes!'
+                title: 'Brincadeira, meu!',
+                template: 'As senhas que você digitou são diferentes, tanto no pessoal como no profissional.'
             });
             return;
         }
@@ -38,8 +40,10 @@ angular.module('bfgs.controllers', [])
         }
         if (!usuario.senha || !usuario.email || !usuario.nome) {
             $ionicPopup.alert({
-                title: 'Preencha todos os campos!'
+                title: 'Orra, meu!',
+                template: 'Tem campo em branco ou inválido aí!'
             });
+            return;
         }
         Usuario.cadastrar(usuario);
 
@@ -123,7 +127,7 @@ angular.module('bfgs.controllers', [])
         if ($rootScope.partida.finalizada) { //se ele errou essa questao, pergunta se ele quer jogar de novo
             Partida.salvar(); //manda a partida pro back
             $ionicPopup.confirm({
-                title: 'Fim da partida! Jogar novamente?',
+                title: 'Terminou! Vai jogar de novo, meu?',
                 okText: 'Sim',
                 okType: 'button-balanced',
                 cancelText: 'Menu',

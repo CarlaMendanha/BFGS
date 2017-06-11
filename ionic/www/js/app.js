@@ -88,7 +88,7 @@ angular.module('bfgs', ['ionic', 'bfgs.controllers', 'bfgs.services'])
         resolve: {
             confirma: function($state, $ionicPopup, Usuario) {
                 return $ionicPopup.confirm({
-                    title: 'Tem certeza que deseja sair?',
+                    title: 'Já vai sair, meu?',
                     okText: 'Sair',
                     cancelText: 'Ficar',
                     cancelType: 'button-positive',

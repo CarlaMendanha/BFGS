@@ -37,7 +37,8 @@ angular.module('bfgs.services', [])
                 }
             }).catch(function() {
                 $ionicPopup.alert({
-                    title: 'Login inválido'
+                    title: 'ERROU',
+                    template: 'O loco meu, seu login ou sua senha estão errados!'
                 })
             }).finally(function() {
                 $ionicLoading.hide();
@@ -102,8 +103,8 @@ angular.module('bfgs.services', [])
             }
         }).catch(function() {
             $ionicPopup.alert({
-                    title: 'Houve um erro ao buscar o placar!',
-                    message: 'Você está conectado à internet?'
+                    title: 'É brincadeira, meu!',
+                    message: 'Você tá conectado à internet, bicho?'
                 })
                 .then(function() {
                     $state.go('menu');
