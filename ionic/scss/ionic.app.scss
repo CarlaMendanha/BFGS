@@ -30,6 +30,9 @@ $geografia:                       #79bee6;
 $historia:                        #ead17b;
 $ciencia:                         #7ad5b1;
 $cotidiano:                       #b67ad5;
+$roxoicon:                        #b6acc9;  
+$btnroxo:                         #dad6e4;
+$Sbtnborda:                       #eaeaf0;      
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
@@ -43,6 +46,7 @@ $border-radius-base: 0.4em;
 @import "login";
 @import "questoes";
 @import "menu";
+@include "regras";
 
 * {
     font-family:  "Roboto", "Helvetica Neue", "Segoe UI", sans-serif;

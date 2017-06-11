@@ -10271,12 +10271,15 @@ img.fausto {
   -webkit-justify-content: space-around;
   -moz-justify-content: space-around;
   justify-content: space-around; }
-  #menu #menu-buttons, #menu #botao-principal {
+  #menu #menu-buttons,
+  #menu #botao-principal {
     -webkit-box-pack: space-around;
     -ms-flex-pack: space-around;
     -webkit-justify-content: space-around;
     -moz-justify-content: space-around;
     justify-content: space-around; }
+  #menu h1 {
+    color: #b6acc9; }
 
 .button-round {
   -webkit-border-radius: 50%;
@@ -10311,16 +10314,18 @@ img.fausto {
     height: 70vw;
     max-height: 500px;
     max-width: 500px;
-    border: 1.5em solid #cbc5d6;
-    -webkit-box-shadow: 0 0.5em 0 #a499b6;
-    box-shadow: 0 0.5em 0 #a499b6; }
+    background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(transparent)), url(../img/Botao.svg);
+    background: linear-gradient(transparent, transparent), url(../img/Botao.svg);
+    -webkit-box-shadow: 0 0.5em 0 #beb6cb;
+    box-shadow: 0 0.5em 0 #beb6cb; }
     .button-round.big.activated {
-      -webkit-box-shadow: 0 0 0 #a499b6;
-      box-shadow: 0 0 0 #a499b6;
-      border: 1.5em solid #a499b6; }
+      -webkit-box-shadow: 0 0 0 #beb6cb;
+      box-shadow: 0 0 0 #beb6cb;
+      background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.1))), url(../img/Botao.svg);
+      background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(../img/Botao.svg); }
   .button-round i {
     font-size: 13vw;
-    color: #9282ae; }
+    color: #b6acc9; }
     @media (min-width: 768px) {
       .button-round i {
         font-size: 500%; } }

@@ -3,9 +3,18 @@
     @include display-flex;
     @include flex-direction(column);
     @include justify-content(space-around);
-    #menu-buttons, #botao-principal {
+    #menu-buttons,
+    #botao-principal {
         @include justify-content(space-around);
     }
+    h1 {
+        color: $roxoicon;
+    }
+}
+
+@mixin botao-faustao($escurescer) {
+    background: -webkit-gradient( linear, left top, left bottom, from(rgba(0, 0, 0, $escurescer)), to(rgba(0, 0, 0, $escurescer))), url(../img/Botao.svg);
+    background: linear-gradient( rgba(0, 0, 0, $escurescer), rgba(0, 0, 0, $escurescer)), url(../img/Botao.svg);
 }
 
 .button-round {
@@ -22,17 +31,16 @@
     max-width: 120px;
     margin-top: 1em;
     &.big {
-        $cor-borda: darken($calm, 10%);
-        $tamanho-borda: 1.5em;
+        $cor-borda: $calm;
         width: 70vw;
         height: 70vw;
         max-height: 500px;
         max-width: 500px;
-        border: $tamanho-borda solid $cor-borda;
+        @include botao-faustao(0);
         @include box-shadow(0 0.5em 0 darken($cor-borda, 15%));
         &.activated {
             @include box-shadow(0 0 0 darken($cor-borda, 15%));
-            border: $tamanho-borda solid darken($cor-borda, 15%);
+            @include botao-faustao(0.1);
         }
     }
     i {
@@ -40,7 +48,7 @@
         @media (min-width: 768px) {
             font-size: 500%;
         }
-        color: $royal;
+        color: $roxoicon;
     }
 }
 
