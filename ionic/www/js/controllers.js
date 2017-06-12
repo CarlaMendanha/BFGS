@@ -64,7 +64,6 @@ angular.module('bfgs.controllers', [])
         state: 'in'
     }
     //Inicializa partida, se ela nao existe
-    console.info($rootScope.partida)
     if (!$rootScope.partida) {
         $rootScope.partida = {
             pulos: 3,
@@ -100,6 +99,7 @@ angular.module('bfgs.controllers', [])
         }
         var a = $scope.pergunta.alternativas[index]; //acha a alternativa marcada
         if (a.certa) { //se ela ta certa, segue em frente
+            $rootScope.sounds.acertou.play();
             a.className = 'button-balanced';
             if($rootScope.partida.streak >= 4){ //pegando fogo?
                 $rootScope.partida.pontuacao += $scope.pergunta.pontos * 1.25;
@@ -134,8 +134,8 @@ angular.module('bfgs.controllers', [])
                 cancelText: 'Menu',
                 cancelType: 'button-light'
             }).then(function(resposta) {
+                $rootScope.partida = false; //joga fora os dados da partida
                 if(resposta){ //ele quer jogar outra
-                    $rootScope.partida = false; //joga fora os dados da partida, pra a proxima tela montar um jogo novo
                     $state.reload();
                 }else{
                     $state.go('menu'); //volta pro menu
