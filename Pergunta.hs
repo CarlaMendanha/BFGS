@@ -17,6 +17,8 @@ import Foundation
 import Network.HTTP.Types.Status
 import Data.List (find)
 import System.Random (randomRIO)
+import System.Random.Shuffle
+--import Data.Random.Lift
 import Utils
 
 -- Criando a pergunta no Banco de dados
@@ -72,5 +74,6 @@ getRandPerguntaR = do
     let pid = ((\(Entity key _) -> key) aleatoria)
     let p = ((\(Entity _ perg) -> perg) aleatoria)
     alternativas <- runDB $ selectList [AlternativaPerguntaId ==. pid] []
+    embaralhadas <- lift $ shuffleM alternativas
     categoria <- runDB $ get404 (perguntaCategoriaId p)
-    sendStatusJSON ok200 (object ["id" .= pid,"enunciado" .= (perguntaEnunciado p), "pontos" .= (perguntaPontos p), "categoria" .= (categoriaNome categoria), "alternativas" .= alternativas])
+    sendStatusJSON ok200 (object ["id" .= pid,"enunciado" .= (perguntaEnunciado p), "pontos" .= (perguntaPontos p), "categoria" .= (categoriaNome categoria), "alternativas" .= embaralhadas])

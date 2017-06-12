@@ -31,5 +31,6 @@ executable          bfgs
                 , time
                 , SHA2
                 , random
+                , random-shuffle
 
   ghc-options:    -threaded -O2 -rtsopts -with-rtsopts=-N
