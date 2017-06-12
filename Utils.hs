@@ -9,19 +9,10 @@
 {-# LANGUAGE TemplateHaskell            #-}
 {-# LANGUAGE TypeFamilies               #-}
 
-module Categoria where
-
+module Utils where
+-- Só porque esse arquivo se chama utils não quer dizer que o restante do sistema é inútil
 import Yesod
 import Foundation
-import Network.HTTP.Types.Status
 
-getCategoriaR :: Handler TypedContent
-getCategoriaR = do
-    categorias <- runDB $ selectList ([] :: [Filter Categoria]) []
-    sendStatusJSON ok200 categorias
-
-postCategoriaR :: Handler TypedContent
-postCategoriaR = do
-    categoria <- requireJsonBody :: Handler Categoria
-    cid <- runDB $ insert categoria
-    sendStatusJSON created201 (object ["id" .= cid])
+enableCors :: Handler ()
+enableCors = addHeader "Access-Control-Allow-Origin" "*"

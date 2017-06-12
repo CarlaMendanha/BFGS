@@ -15,7 +15,6 @@ import Yesod
 import Database.Persist.Postgresql
 import Foundation
 import Network.HTTP.Types.Status
-import Data.List (find)
 
 postAlternativaR :: Handler TypedContent
 postAlternativaR = do
