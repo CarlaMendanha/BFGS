@@ -15,7 +15,6 @@ import Yesod
 import Yesod.Static
 import Data.Text
 import Data.Time.Calendar
-import Database.Persist
 import Database.Persist.Postgresql
 
 staticFiles "admin"
@@ -27,7 +26,7 @@ data App = App
     }
 
 
-share [mkPersist sqlSettings, mkDeleteCascade sqlOnlySettings, mkMigrate "migrateAll"] [persistLowerCase|
+share [mkPersist sqlSettings, mkDeleteCascade sqlSettings, mkMigrate "migrateAll"] [persistLowerCase|
     Usuario json
         nome Text
         email Text

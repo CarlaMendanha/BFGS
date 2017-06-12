@@ -2,7 +2,7 @@
 /cadastro                       CadastroR                   POST
 /login/#Text/#Text              LoginR                      GET
 
-/categoria                      CategoriaR                  GET
+/categoria                      CategoriaR                  GET POST
 
 /partida                        PartidaR                    POST
 /placar                         PlacarR                     GET
