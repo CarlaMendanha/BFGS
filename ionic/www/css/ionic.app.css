@@ -9970,6 +9970,9 @@ a.button {
   width: 100vw;
   height: 100vh; }
 
+.center {
+  padding-top: 5em; }
+
 .bar.bar-variedades {
   border-color: #d12b43;
   background-color: #dc5367;
