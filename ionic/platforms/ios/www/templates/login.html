@@ -1,0 +1,22 @@
+<ion-view title="Login">
+  <ion-content>
+    <form>
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">E-mail</span>
+          <input type="email" ng-model="loginData.email">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Senha</span>
+          <input type="password" ng-model="loginData.password">
+        </label>
+      </div>
+    </form>
+        <div class="padding">
+          <button ng-click="doLogin()" class="button button-block button-positive" type="button">Login</button>
+        </div>
+    <div class="text-center">
+      <a ui-sref="cadastro">Não sou cadastrado</a>
+    </div>
+  </ion-content>
+</ion-view>

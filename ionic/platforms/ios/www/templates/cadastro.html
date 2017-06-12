@@ -1,0 +1,31 @@
+<ion-view title="Cadastro">
+  <ion-content>
+    <form>
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Nome</span>
+          <input type="text" ng-model="loginData.name">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">E-mail</span>
+          <input type="email" ng-model="loginData.email">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Senha</span>
+          <input type="password" ng-model="loginData.password">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Confirmar senha</span>
+          <input type="password" ng-model="loginData.passwordConfirmation">
+        </label>
+      </div>
+    </form>
+    
+        <div class="padding">
+          <button ng-click="doCadastro()" class="button button-block button-positive" type="submit">Cadastrar</button>
+        </div>
+    <div class="text-center">
+      <a ui-sref="login">Já sou cadastrado</a>
+    </div>
+  </ion-content>
+</ion-view>

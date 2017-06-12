@@ -1,0 +1,29 @@
+$categorias: variedades,
+esportes,
+geografia,
+historia,
+ciencia,
+cotidiano;
+$cores: $variedades,
+$esportes,
+$geografia,
+$historia,
+$ciencia,
+$cotidiano;
+.bar {
+    @for $i from 1 through length($cores) {
+        $cat: nth($categorias, $i);
+        $color: nth($cores, $i);
+        &.bar-#{$cat} {
+            @include bar-style($color, darken($color, 10%), $light)
+        }
+    }
+}
+
+@for $i from 1 through length($cores) {
+    $cat: nth($categorias, $i);
+    $color: nth($cores, $i);
+    .button.button-#{$cat} {
+        @include button-style($color, $color, darken($color, 10%), $color, $light)
+    }
+}

@@ -1,0 +1,59 @@
+#menu {
+    min-height: calc(100vh - 44px);
+    @include display-flex;
+    @include flex-direction(column);
+    @include justify-content(space-around);
+    #menu-buttons,
+    #botao-principal {
+        @include justify-content(space-around);
+    }
+}
+
+@mixin botao-faustao($escurescer) {
+    background: -webkit-gradient( linear, left top, left bottom, from(rgba(0, 0, 0, $escurescer)), to(rgba(0, 0, 0, $escurescer))), url(../img/Botao.svg);
+    background: linear-gradient( rgba(0, 0, 0, $escurescer), rgba(0, 0, 0, $escurescer)), url(../img/Botao.svg);
+}
+
+.button-round {
+    @include border-radius(50%);
+    width: 20vw;
+    height: 20vw;
+    background: $light;
+    box-shadow: 0 0.5em 0 darken($light, 15%);
+    @include display-flex;
+    @include justify-content(center);
+    @include align-items(center);
+    @include animation(button-round-in .5s ease);
+    max-height: 120px;
+    max-width: 120px;
+    margin-top: 1em;
+    &.big {
+        $cor-borda: $calm;
+        width: 70vw;
+        height: 70vw;
+        max-height: 500px;
+        max-width: 500px;
+        @include botao-faustao(0);
+        @include box-shadow(0 0.5em 0 darken($cor-borda, 15%));
+        &.activated {
+            @include box-shadow(0 0 0 darken($cor-borda, 15%));
+            @include botao-faustao(0.1);
+        }
+    }
+    i {
+        font-size: 13vw;
+        @media (min-width: 768px) {
+            font-size: 500%;
+        }
+        color: $roxoicon;
+    }
+}
+
+@keyframes button-round-in {
+    from {
+        @include transform(rotate(-180deg) scale(0));
+    }
+    to {
+        @include transform(rotate(0) scale(1));
+    }
+}

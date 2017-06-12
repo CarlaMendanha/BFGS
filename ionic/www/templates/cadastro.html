@@ -1,0 +1,34 @@
+<ion-view title="CADASTRO" hide-nav-bar="true">
+    <ion-content class="royal-bg loginCadastro">
+        <div class="positive-bg logo">
+            <img src="img/logo.svg" />
+        </div>
+        <form>
+      <div class="list padding">
+        <label class="item item-input item-floating-label campos">
+          <span class="input-label">Nome</span>
+          <input type="text"placeholder="Insira seu nome" ng-model="loginData.name">
+        </label>
+        <label class="item item-input item-floating-label campos">
+          <span class="input-label">E-mail</span>
+          <input type="email" placeholder="Insira seu e-mail" ng-model="loginData.email">
+        </label>
+        <label class="item item-input item-floating-label campos">
+          <span class="input-label">Senha</span>
+          <input type="password" placeholder="Insira sua senha" ng-model="loginData.password">
+        </label>
+        <label class="item item-input item-floating-label campos">
+          <span class="input-label">Confirmar senha</span>
+          <input type="password" placeholder="Insira novamente sua senha" ng-model="loginData.passwordConfirmation">
+        </label>
+      </div>
+    </form>
+    
+        <div class="padding">
+          <button ng-click="doCadastro()" class="button button-block button-energized btn700" type="submit">Cadastrar</button>
+        </div>
+    <div class="padding">
+      <a class="button button-block button-positive btn700" ui-sref="login">Já sou cadastrado</a>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,85 @@
+.questao{
+    padding-top: 55px;
+    .card{
+        @include border-radius(.5em);
+        font-size: 1.5em;
+        padding: 2em 1em;
+        color: $dark;
+        @include transition(all 1s ease);
+        
+        &.in{
+            @include transform(translateX(-150%));
+            opacity: 0 !important;
+        }
+        &.out{
+            @include transform(translateX(150%));
+            opacity: 0 !important;
+        }
+    }
+    .wrapper{
+        div.padding{
+            @include transition(all 1s ease);
+            @for $i from 1 through 5 {
+                &:nth-child(#{$i}){
+                    @include transition-delay(.1s * $i);
+                }
+            }
+        }
+        
+        &.in{
+           div.padding{
+                @include transform(translateX(-150%));
+           }
+        }
+        &.out{
+           div.padding{
+                @include transform(translateX(150%));
+           }
+        }
+    }
+}
+#proxima{
+    @include transition(all 1s ease);
+    &.in, &.out{
+        opacity: 0 !important;
+    }
+}
+
+img.fausto{
+    max-height: 45%;
+}
+
+#fogo{
+    position: absolute;
+    top: 20px;
+    //mix-blend-mode: hard-light;
+    img{
+        width: 100vw;
+    }
+}
+
+.faustao-ninja{
+    position: absolute;
+    top: 0;
+    @include transform(rotate(90deg) translateY(100%));
+    width: 100%;
+    &.show{
+        @include animation-fill-mode(forwards);
+        @include animation(faustao-aparecendo 1.5s ease);
+    }
+}
+
+@keyframes faustao-aparecendo{
+    0%{
+        @include transform(rotate(90deg) translateY(100%));
+    }
+    25%{
+        @include transform(rotate(90deg) translateY(40%));
+    }
+    75%{
+        @include transform(rotate(90deg) translateY(40%));
+    }
+    100%{
+        @include transform(rotate(90deg) translateY(100%));
+    }
+}

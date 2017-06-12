@@ -15,9 +15,54 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
+$positive:                        #705B95; //roxo forte
+$royal:                           #9282ae; //roxinho
+$calm:                            #e6e3eb; //lilas fofinho
+$energized:                       #f9c700; //amarelo
+$balanced:                        #7ad5b1; //certo
+$assertive:                       #f57171; //errado
+$light:                           #fff;
+$stable:                          #646464;    
+
+//Mais cores
+$variedades:                      #dc5367;
+$esportes:                        #e69f79;
+$geografia:                       #79bee6;
+$historia:                        #ead17b;
+$ciencia:                         #7ad5b1;
+$cotidiano:                       #b67ad5;
+$roxoicon:                        #b6acc9;  
+
+
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
+$popup-border-radius: 0.4em;
+$border-radius-base: 0.4em;
 
 // Include all of Ionic
-@import "www/lib/ionic/scss/ionic";
+@import "../www/lib/ionic/scss/ionic";
+@import "helper"; 
+@import "categorias";
+@import "login";
+@import "questoes";
+@import "menu";
+@import "regras";
+
+* {
+    font-family:  "Roboto", sans-serif !important;
+}
+
+.font-diferente{
+    font-family: 'Archivo Black', sans-serif; 
+    color: $roxoicon;
+}
+
+.btn700{
+	font-weight:700;
+}
+
+.buttons {
+  //box-shadow: 0px 5px 0px 0px darken(#808080, 5%), 0px 0px 10px 0px #bbb;
+  //color: $stable !important;
+}
 

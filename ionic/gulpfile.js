@@ -18,9 +18,9 @@ gulp.task('sass', function(done) {
     .pipe(sass())
     .on('error', sass.logError)
     .pipe(gulp.dest('./www/css/'))
-    .pipe(minifyCss({
+    /*.pipe(minifyCss({
       keepSpecialComments: 0
-    }))
+    }))*/
     .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest('./www/css/'))
     .on('end', done);
@@ -49,3 +49,6 @@ gulp.task('git-check', function(done) {
   }
   done();
 });
+
+gulp.task('serve:before', ['sass', 'watch']);
+gulp.task('default', ['sass', 'watch']);

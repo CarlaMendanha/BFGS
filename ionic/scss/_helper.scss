@@ -1,0 +1,25 @@
+//Mixins
+@mixin total-center{
+    @include display-flex;
+    @include align-items(center);
+    @include justify-content(center);
+}
+
+@mixin full-screen{
+    width: 100vw;
+    height: 100vh;
+}
+
+.total-center{
+	@include total-center;
+}
+
+.full-screen{
+    @include full-screen;
+}
+
+.center{
+    padding-top:5em;
+
+}
+

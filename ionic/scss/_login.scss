@@ -1,0 +1,28 @@
+.loginCadastro{
+	
+	.cad{
+		color: $light !important;
+	}
+	
+	 .logo{
+   		height: 30em;
+   		margin: auto;
+    	width: 100vw;
+   		display: block;
+    	@include total-center;
+    	img{
+    		width: 100vw;
+    		max-height: 25em;
+    	}
+	}
+
+	.campos{
+		border-top: transparent;
+		border-left: transparent;
+		border-right: transparent;
+		span, input{
+			color: $light;
+			@include placeholder($light);
+		}
+	}
+}
