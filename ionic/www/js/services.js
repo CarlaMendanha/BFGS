@@ -60,7 +60,20 @@ angular.module('bfgs.services', [])
     this.temQueEstarLogado = function() {
         var u = this.get();
         if (!u.id || !u.nome || u.nome === 'undefined') {
+            $ionicHistory.nextViewOptions({
+                disableBack: true
+            });
             $state.go('login');
+        }
+    }
+
+    this.naoPodeEstarLogado = function() {
+        var u = this.get();
+        if (u.id && u.nome && u.nome !== 'undefined') {
+            $ionicHistory.nextViewOptions({
+                disableBack: true
+            });
+            $state.go('menu');
         }
     }
 

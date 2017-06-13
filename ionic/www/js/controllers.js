@@ -1,6 +1,7 @@
 angular.module('bfgs.controllers', [])
 
 .controller('loginCtrl', function($scope, $ionicPopup,Usuario) {
+    Usuario.naoPodeEstarLogado();
     $scope.loginData = {
         email: '',
         password: ''
@@ -19,6 +20,7 @@ angular.module('bfgs.controllers', [])
 })
 
 .controller('cadastroCtrl', function($scope, $ionicPopup, Usuario) {
+    Usuario.naoPodeEstarLogado();
     $scope.loginData = {
         name: '',
         email: '',
@@ -158,8 +160,8 @@ angular.module('bfgs.controllers', [])
 .controller('placarCtrl', function($scope, $rootScope, Partida, Usuario){
     Usuario.temQueEstarLogado();
     $scope.placar = [];
+    $rootScope.sounds.placar.play();
     Partida.placar().then(function(placar){
         $scope.placar = placar;
-        $rootScope.sounds.placar.play();
     });
 })
