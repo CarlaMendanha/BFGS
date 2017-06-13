@@ -99,7 +99,6 @@ angular.module('bfgs.controllers', [])
         }
         var a = $scope.pergunta.alternativas[index]; //acha a alternativa marcada
         if (a.certa) { //se ela ta certa, segue em frente
-            $rootScope.sounds.acertou.play();
             a.className = 'button-balanced';
             if($rootScope.partida.streak >= 4){ //pegando fogo?
                 $rootScope.partida.pontuacao += $scope.pergunta.pontos * 1.25;
@@ -112,6 +111,8 @@ angular.module('bfgs.controllers', [])
                     $scope.modal.show();
                     $rootScope.sounds.fogo.play();
                 }, 200);
+            }else{
+                $rootScope.sounds.acertou.play();
             }
         }
         else { //ERROU!
